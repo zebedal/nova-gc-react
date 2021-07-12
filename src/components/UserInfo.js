@@ -17,6 +17,7 @@ const userInfo = props => (
         </div>
         <div className={styles['avatar-wrapper']}><img className={styles.avatar} src={Avatar} alt="" /></div>
     </div>
+    
 )
 
 export default userInfo
