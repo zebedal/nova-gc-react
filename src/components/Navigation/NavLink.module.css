@@ -1,0 +1,51 @@
+.navlink {
+    list-style: none;
+    position: relative;
+}
+.navlink > .subMenu {
+    pointer-events: none;
+    position: absolute;
+    background: #363636;
+    padding: 15px;
+    border-radius: 10px;
+    top: 20px;
+    left: 0;
+    white-space: nowrap;
+    line-height: 2em;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease-out;
+    z-index: 9;
+}
+.navlink > svg {
+    margin-left: 5px;
+    transition: transform .2s ease-out;
+}
+.navlink:hover > svg {
+    transform: rotate(180deg);
+}
+.navlink:hover > .subMenu{
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+}
+.subMenu-link > a {
+    color: white !important;
+    font-size: 12px;
+    transition: all .5s ease;
+   
+}
+.subMenu-link > a:hover {
+    color: #c20707 !important;
+}
+.subMenu-link {
+    transition: transform .5s ease;
+    list-style: none;
+}
+.subMenu-link:hover {
+    transform: translateX(5px);
+}
+.link {
+    font-size: 14px;
+}
+

@@ -1,0 +1,14 @@
+.wrapper {
+    position: relative;
+    width: 90vw;
+    max-width: 1680px;
+    height: 90vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f2f4f9;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px rgba(0,0,0, .5);
+}
+.inner-wrapper {
+    padding: 50px 80px;
+}

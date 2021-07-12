@@ -1,0 +1,145 @@
+[
+    {
+       "MenuId":7,
+       "MenuText":"Entidades",
+       "subMenuItems" : [
+          {
+             "SubMenuId": 13,
+             "subMenuUrl": "",
+             "menuText": "A minha carteira",
+             "MenuToolTip": ""
+          },
+          {
+            "SubMenuId": 14,
+            "subMenuUrl": "",
+            "menuText": "Entidades da carteira",
+            "MenuToolTip": ""
+         },
+         {
+            "SubMenuId": 15,
+            "subMenuUrl": "",
+            "menuText": "Entidades fora da carteira",
+            "MenuToolTip": ""
+         },
+         {
+            "SubMenuId": 16,
+            "subMenuUrl": "",
+            "menuText": "Índice digital",
+            "MenuToolTip": ""
+         },
+         {
+            "SubMenuId": 17,
+            "subMenuUrl": "",
+            "menuText": "Hotline",
+            "MenuToolTip": ""
+         }
+       ],
+       "MenuIconUrl":null,
+       "MenuActivo":1,
+       "MenuToolTip":"Carteira e Entidades",
+       "MenuUrl":null
+    },
+    {
+       "MenuId":64,
+       "MenuHTMLId":"0064_Pipe",
+       "MenuOnClick":null,
+       "MenuText":"Pipeline",
+       "subMenuItems" : [
+         {
+            "SubMenuId": 13,
+            "subMenuUrl": "",
+            "menuText": "Sub menu item 1",
+            "MenuToolTip": ""
+         },
+         {
+           "SubMenuId": 14,
+           "subMenuUrl": "",
+           "menuText": "Sub menu item 2",
+           "MenuToolTip": ""
+        },
+        {
+           "SubMenuId": 15,
+           "subMenuUrl": "",
+           "menuText": "Sub menu item 3",
+           "MenuToolTip": ""
+        },
+        {
+           "SubMenuId": 16,
+           "subMenuUrl": "",
+           "menuText": "Sub menu item 4",
+           "MenuToolTip": ""
+        },
+        {
+           "SubMenuId": 17,
+           "subMenuUrl": "",
+           "menuText": "Sub menu item 5",
+           "MenuToolTip": ""
+        }
+      ],
+       "MenuIconUrl":null,
+       "MenuActivo":1,
+       "MenuToolTip":"Gestão de Pipeline",
+       "MenuActivoDesc":null,
+       "MenuUrl":null,
+       "MenuOrd":0,
+       "MenuFooter":null
+    },
+    {
+       "MenuId":71,
+       "MenuHTMLId":"0071_Perf",
+       "MenuOnClick":null,
+       "MenuText":"Performance",
+       "subMenuItems" : [
+         {
+            "SubMenuId": 13,
+            "subMenuUrl": "",
+            "menuText": "Sub menu item 1",
+            "MenuToolTip": ""
+         },
+         {
+           "SubMenuId": 14,
+           "subMenuUrl": "",
+           "menuText": "Sub menu item 2",
+           "MenuToolTip": ""
+        },
+        {
+           "SubMenuId": 15,
+           "subMenuUrl": "",
+           "menuText": "Sub menu item 3",
+           "MenuToolTip": ""
+        },
+        {
+           "SubMenuId": 16,
+           "subMenuUrl": "",
+           "menuText": "Sub menu item 4",
+           "MenuToolTip": ""
+        },
+        {
+           "SubMenuId": 17,
+           "subMenuUrl": "",
+           "menuText": "Sub menu item 5",
+           "MenuToolTip": ""
+        }
+      ],
+       "MenuIconUrl":null,
+       "MenuActivo":1,
+       "MenuToolTip":"Para mais dados de Performance, verifique a Gestão Comercial 2.0",
+       "MenuActivoDesc":null,
+       "MenuUrl":null,
+       "MenuOrd":0,
+       "MenuFooter":null
+    },
+    {
+       "MenuId":98,
+       "MenuHTMLId":"0098_Acoes",
+       "MenuOnClick":null,
+       "MenuText":"Ações",
+       "MenuIconUrl":null,
+       "MenuActivo":1,
+       "MenuToolTip":"Menu Ações",
+       "MenuActivoDesc":null,
+       "MenuUrl":null,
+       "MenuOrd":0,
+       "MenuFooter":null
+    }
+ ]
