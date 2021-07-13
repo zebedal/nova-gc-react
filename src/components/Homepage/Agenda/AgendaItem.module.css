@@ -8,11 +8,11 @@
     width: 23px;
 }
 .title {
-    font-family: montserrat-regular;
+    font-family: montserrat-light;
     font-size: 12px;
     font-weight: 600;
 }
 .date {
     font-family: montserrat-light;
-    font-size: 12px;
+    font-size: 11px;
 }

@@ -3,16 +3,27 @@ import Card from "../../UI/Card"
 import styles from './Agenda.module.css'
 import AgendaItem from './AgendaItem'
 import axios from "axios"
+import { momentLocalizer   } from 'react-big-calendar'
+import moment from 'moment'
+import Basic from "../../Calendar/Calendar"
+import mais from '../../../assets/img/mais.svg'
+
+
+const localizer = momentLocalizer(moment)
 
 const Agenda = props => {
 
     const [agendaItems, setAgendaItems] = useState([]);
+    const [calendarEvents, setCalendarEvents] = useState();
 
     useEffect(() => {
+
         (async () => {
            const response = await axios.get('/data/agendaItems.json');
            setAgendaItems(response.data);
         })();
+
+
     }, [])
 
 
@@ -24,6 +35,8 @@ const Agenda = props => {
                 <div className={styles['agenda-items-wrapper']}>
                    {agendaItems && agendaItems.map(item => <AgendaItem {...item} key={item.id}/>)} 
                 </div>
+                <div className={styles.button}><img src={mais} alt="" />  </div>
+              <Basic localizer={localizer}/>
             </Card>
         </div>
     )

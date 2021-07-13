@@ -54,7 +54,7 @@ const Spinner = props => (
                     repeatCount="indefinite" />
             </rect>
         </svg>
-        <p style={{color: 'white'}}>Loading awesome content...</p>
+        <p style={{color: 'white', fontFamily: 'montserrat-regular'}}>Loading awesome content...</p>
     </div>
 )
 

@@ -18,4 +18,13 @@
 .Header > nav > ul > li {
     position: relative;
 }
-
+@media screen and (max-width: 945px) {
+    .Header > nav > ul {
+        display: none;
+    }
+}
+@media screen and (max-width: 700px) {
+    .Header {
+        padding: 0 20px;
+    }
+}

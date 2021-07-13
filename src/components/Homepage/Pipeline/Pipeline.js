@@ -1,15 +1,28 @@
 import styles from './Pipeline.module.css'
-/* import React from 'react' */
+import React, { useEffect } from 'react'
 import Card from '../../UI/Card'
+import Chart from '../Charts/Chart'
+import buildChart from '../Charts/Chart'
 
-const Pipeline = props => (
-    <div className={styles.wrapper}>
+const Pipeline = props => {
+
+    useEffect(() => {
+        buildChart();
+    }, []);
+
+    return (
+        <div className={styles.wrapper}>
             <h5>O meu pipeline</h5>
             <p className="subtitle">Informação relativa ao meu awesome pipeline</p>
             <Card >
-                
+                <div id="chartdiv" >
+
+                </div>
+
             </Card>
-    </div>
-)
+        </div>
+    )
+}
+
 
 export default Pipeline

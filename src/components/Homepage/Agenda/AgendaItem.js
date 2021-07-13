@@ -12,7 +12,6 @@ const AgendaItem = ({type, title, date}) => {
         const loadImage = imageName => {
             import(`../../../assets/img/${imageName}.svg`).then(image => {
                 setImage(image);
-                console.log(image)
             })
         }
         loadImage(type);

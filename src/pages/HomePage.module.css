@@ -1,10 +1,12 @@
 .wrapper {
     display: grid;
     grid-template-areas: 
-                    "title title title agenda agenda "
-                    "carteira carteira carteira agenda agenda "
-                    "pipeline pipeline pipeline agenda agenda "
-                    "pipeline pipeline pipeline agenda agenda ";
+                    "title title title agenda  "
+                    "carteira carteira carteira agenda  "
+                    "pipeline pipeline pipeline agenda  "
+                    "pipeline pipeline pipeline agenda  "
+                    "pipeline pipeline pipeline agenda  "
+                    "pipeline pipeline pipeline agenda  ";
 }
 .title-wrapper {
     grid-area: title;
@@ -12,4 +14,16 @@
 .title-wrapper > h5 > span {
     color: #C20707;
     font-size: 24px;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .wrapper {
+        display: grid;
+        grid-template-areas: 
+                        "title "
+                        "carteira "
+                        "pipeline "
+                        "agenda";
+    }
 }

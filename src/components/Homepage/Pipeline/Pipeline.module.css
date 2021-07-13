@@ -1,4 +1,10 @@
 .wrapper {
-    margin-top: 50px;
+     margin-top: 25px; 
     grid-area: pipeline;
+}
+
+@media screen and (max-width: 1200px) {
+    .wrapper {
+        margin-top: 50px;
+    }
 }

@@ -1,0 +1,32 @@
+
+    [
+        {
+            "id": 1,
+            "title": "Facturação total mensal",
+            "src": "money.svg",
+            "value": "83.386€",
+            "up": true
+        },
+        {
+            "id": 2,
+            "title": "VM em contratos",
+            "src": "contract.svg",
+            "value": "72.500€",
+            "up": false
+        },
+        {
+            "id": 3,
+            "title": "Outra métrica qualquer",
+            "src": "metricas.svg",
+            "value": "45.250€",
+            "up": true
+        },
+        {
+            "id": 4,
+            "title": "Outra métrica ainda",
+            "src": "time.svg",
+            "value": "12.750€",
+            "up": false
+        }
+   
+    ]

@@ -1,6 +1,60 @@
 .box {
-    width: 120px;
+    width: 180px;
     height: 100px;
-    background: #4D4F54;
+    /* flex: 1 0 130px; */
+    /* background: #4d4f54; */
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
     border-radius: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1 150px;
+}   
+.triangleUp {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 16px 20px 16px;
+    border-color: transparent transparent #48a700 transparent;
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translate(-12px, -50%);
+}
+.triangleDown {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 16px 20px 16px;
+    border-color: transparent transparent #c20707 transparent;
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translate(-12px, -50%) rotate(180deg);
+}
+.title {
+    color: white;
+    font-size: 10px;
+    margin-bottom: 5px;
+    /* text-transform: uppercase; */
+}
+.text-content {
+    width: 60%;
+    padding: 15px;
+}
+
+.image-wrapper {
+    width: 40%;
+    position: relative;
+   padding: 12px;
+   height: 100%;
+}
+.image-wrapper > img {
+    width: 100%;
+    height: 100%;
+}
+.value {
+    color: white;
+    font-family: montserrat-bold;
+    font-size: 18px;
 }

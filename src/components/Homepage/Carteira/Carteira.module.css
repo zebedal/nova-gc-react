@@ -1,5 +1,5 @@
 .wrapper {
-    margin-top: 50px;
+    margin-top: 50px; 
     grid-area: carteira;
 }
 
@@ -7,4 +7,14 @@
     display: flex;
     gap: 20px;
     align-items: center;
+    flex-wrap: wrap;
+}
+.bold {
+    font-weight: bold;
+    color: black;
+}
+@media screen and (max-width: 1200px) {
+    .wrapper {
+        margin-top: 50px;
+    }
 }

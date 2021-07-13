@@ -63,3 +63,16 @@ h5 {
   font-size: 12px;
   color: #828282;
 }
+/* Chart styles */
+#chartdiv {
+    width: 52%;
+    height: 284px;
+    flex: 1 1 350px;
+}
+g[aria-labelledby="id-66-title"] {
+    display: none;
+}
+tspan {
+    font-size: 9px;
+    font-weight: bold;
+}
