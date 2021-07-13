@@ -7,7 +7,7 @@ import { momentLocalizer   } from 'react-big-calendar'
 import moment from 'moment'
 import Basic from "../../Calendar/Calendar"
 import mais from '../../../assets/img/mais.svg'
-
+import MoreOptions from '../../UI/MoreOptions'
 
 const localizer = momentLocalizer(moment)
 
@@ -30,6 +30,7 @@ const Agenda = props => {
     return (
         <div className={styles.wrapper}>
             <Card >
+                <MoreOptions />
                 <h5>Agenda</h5>
                 <p className="subtitle">Últimos 15 dias</p>
                 <div className={styles['agenda-items-wrapper']}>

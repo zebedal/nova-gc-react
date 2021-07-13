@@ -14,23 +14,25 @@
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 16px 20px 16px;
+    border-width: 0 10px 14px 10px;
     border-color: transparent transparent #48a700 transparent;
-    position: absolute;
-    top: -2px;
+    margin-left: 3px;
+    /* position: absolute; */
+    /* top: -2px;
     left: 50%;
-    transform: translate(-12px, -50%);
+    transform: translate(-12px, -50%); */
 }
 .triangleDown {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 16px 20px 16px;
+    border-width: 0 10px 14px 10px;
     border-color: transparent transparent #c20707 transparent;
-    position: absolute;
+    margin-left: 3px;
+    /* position: absolute;
     top: 2px;
-    left: 50%;
-    transform: translate(-12px, -50%) rotate(180deg);
+    left: 50%; */
+    transform: rotate(180deg);
 }
 .title {
     color: white;
@@ -48,6 +50,7 @@
     position: relative;
    padding: 12px;
    height: 100%;
+   min-width: 70px;
 }
 .image-wrapper > img {
     width: 100%;
@@ -57,4 +60,6 @@
     color: white;
     font-family: montserrat-bold;
     font-size: 18px;
+    display: flex;
+    align-items: center;
 }

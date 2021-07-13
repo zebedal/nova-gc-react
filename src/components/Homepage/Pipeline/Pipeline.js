@@ -15,7 +15,7 @@ const Pipeline = props => {
             <h5>O meu pipeline</h5>
             <p className="subtitle">Informação relativa ao meu awesome pipeline</p>
             <Card >
-                <div id="chartdiv" >
+                <div id="chartdiv" className={styles.chartdiv} >
 
                 </div>
 

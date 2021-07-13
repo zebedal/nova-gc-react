@@ -57,10 +57,11 @@ h1,h2,h3,h4,h5 {
   font-family: montserrat-bold;
 }
 h5 {
-  font-size: 18px;
+  font-size: 15px;
+  text-transform: uppercase;
 }
 .subtitle {
-  font-size: 12px;
+  font-size: 11px;
   color: #828282;
 }
 /* Chart styles */

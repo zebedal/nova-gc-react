@@ -8,3 +8,8 @@
         margin-top: 50px;
     }
 }
+@media screen and (max-width: 1085px) {
+    .chartdiv {
+        width: 100% !important;
+    }
+}

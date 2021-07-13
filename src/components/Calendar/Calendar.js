@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Calendar, Views } from 'react-big-calendar'
+import { Calendar } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 
@@ -55,7 +55,7 @@ const Basic = ({ localizer }) => {
             step={30}
             onSelecting= {slot => true}
             selectable
-            selected
+            messages={{'today': "Hoje", "previous":'Anterior', "next":"Seguinte"}}
             onSelectEvent={event => alert(event.title)}
             /* max={dates.add(dates.endOf(new Date(2015, 17, 1), 'day'), -1, 'hours')} */
             defaultDate={new Date(2021, 6, 13)}

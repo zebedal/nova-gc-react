@@ -5,7 +5,7 @@ import Agenda from '../components/Homepage/Agenda/Agenda'
 
 const HomePage = props => (
     <div className={styles.wrapper}>
-        <div className={styles['title-wrapper']}><h5>Bem vindo à <span>Gestão Comercial</span></h5></div>
+        <div className={styles['title-wrapper']}><h5 style={{textTransform: 'none'}}>Bem vindo à <span>Gestão Comercial</span></h5></div>
         <Carteira />
         <Pipeline />
         <Agenda />
