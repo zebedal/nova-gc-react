@@ -1,0 +1,10 @@
+.wrapper {
+    grid-area: agenda;
+    margin-left: 80px;
+    
+}
+.agenda-items-wrapper {
+    max-height: 220px;
+    overflow-y: auto;
+    margin-top: 20px;
+}

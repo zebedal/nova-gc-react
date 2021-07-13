@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+.imagem {
+    width: 23px;
+}
+.title {
+    font-family: montserrat-regular;
+    font-size: 12px;
+    font-weight: 600;
+}
+.date {
+    font-family: montserrat-light;
+    font-size: 12px;
+}

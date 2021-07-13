@@ -14,7 +14,6 @@ const Header = props => {
          (async () => {
             const response = await axios.get('/data/menus.json');
             setMenuItems(response.data);
-            console.log(response)
         })();
         
     }, []);

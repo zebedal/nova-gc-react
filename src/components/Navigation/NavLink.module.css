@@ -2,10 +2,12 @@
     list-style: none;
     position: relative;
 }
-.navlink > .subMenu {
+.subMenu {
     pointer-events: none;
     position: absolute;
-    background: #363636;
+    background-color: #485461;
+    background-image: linear-gradient(315deg, #485461 0%, transparent 40%, #28313b 74%);  
+    filter: opacity(.92);
     padding: 15px;
     border-radius: 10px;
     top: 20px;
@@ -17,6 +19,7 @@
     transition: all 0.5s ease-out;
     z-index: 9;
 }
+
 .navlink > svg {
     margin-left: 5px;
     transition: transform .2s ease-out;
@@ -46,6 +49,6 @@
     transform: translateX(5px);
 }
 .link {
-    font-size: 14px;
+    font-size: 13px;
 }
 

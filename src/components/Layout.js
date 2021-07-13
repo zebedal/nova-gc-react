@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './Layout.module.css'
 import Header from './Navigation/Header'
 
@@ -9,8 +8,6 @@ const Layout = props => {
         <div className={styles.wrapper}>
             <Header />
             <div className={styles['inner-wrapper']}>
-                inner-wrapper
-                
                 <main>
                     {props.children}
                 </main>

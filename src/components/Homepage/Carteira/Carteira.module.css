@@ -1,0 +1,10 @@
+.wrapper {
+    margin-top: 50px;
+    grid-area: carteira;
+}
+
+.boxes-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}

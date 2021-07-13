@@ -5,6 +5,14 @@
     height: auto;
     position: relative;
 }
+.wrapper > img {
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.wrapper > img:hover  {
+    opacity: .7;
+    transform: translateY(-3px);
+}
 .line {
     height: 25px;
     width: 2px;

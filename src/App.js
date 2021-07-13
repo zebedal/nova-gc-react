@@ -1,12 +1,19 @@
-import Layout from "./components/Layout";
+import React, { Suspense } from 'react'
+import Spinner from "./components/UI/Spinner";
+import HomePage from './pages/HomePage';
 
 function App() {
+
+  const Layout = React.lazy(() => import('./components/Layout'));
+
   return (
     <div className="App">
-
-      <Layout />
-     
-    </div>
+      <Suspense fallback={<Spinner />}>
+        <Layout>
+          <HomePage />
+        </Layout>
+      </Suspense>
+    </div >
   );
 }
 

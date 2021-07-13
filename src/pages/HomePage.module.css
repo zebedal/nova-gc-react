@@ -1,0 +1,15 @@
+.wrapper {
+    display: grid;
+    grid-template-areas: 
+                    "title title title agenda agenda "
+                    "carteira carteira carteira agenda agenda "
+                    "pipeline pipeline pipeline agenda agenda "
+                    "pipeline pipeline pipeline agenda agenda ";
+}
+.title-wrapper {
+    grid-area: title;
+}
+.title-wrapper > h5 > span {
+    color: #C20707;
+    font-size: 24px;
+}

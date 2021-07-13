@@ -1,0 +1,43 @@
+
+    [
+        {
+            "id": 1,
+            "type": "proposta",
+            "iconUrl": "hand-shake.svg",
+            "title": "Fechar proposta com Sons of Apollo",
+            "date": "17-02-2021"
+            
+        },
+        {
+            "id": 2,
+            "type": "proposta",
+            "iconUrl": "hand-shake.svg",
+            "title": "Fechar proposta com Reboques Simões",
+            "date": "21-02-2021"
+            
+        },
+        {
+            "id": 3,
+            "type": "visita",
+            "iconUrl": "business-man.svg",
+            "title": "visitaa a M. Coutinho SGPS",
+            "date": "22-02-2021 - 10:00 AM"
+            
+        },
+        {
+            "id": 4,
+            "type": "visita",
+            "iconUrl": "business-man.svg",
+            "title": "visitaa a barbosa e boinas cs",
+            "date": "25-02-2021 - 11:30 AM"
+            
+        },
+        {
+            "id": 5,
+            "type": "nota",
+            "iconUrl": "contrato.svg",
+            "title": "Nota sobre adidas portugal sa",
+            "date": "02-03-2021"
+            
+        }
+    ]
