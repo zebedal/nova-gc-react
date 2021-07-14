@@ -1,7 +1,6 @@
 import styles from './Pipeline.module.css'
 import React, { useEffect } from 'react'
 import Card from '../../UI/Card'
-import Chart from '../Charts/Chart'
 import buildChart from '../Charts/Chart'
 
 const Pipeline = props => {

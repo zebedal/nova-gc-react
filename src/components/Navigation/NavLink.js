@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const NavLink = ({ MenuText, MenuToolTip, MenuHTMLId, subMenuItems }) => {
 
 
-    const htmlId = MenuToolTip.replace(/[ ]/g, "\u00a0");
+    /* const htmlId = MenuToolTip.replace(/[ ]/g, "\u00a0"); */
 
     return (
         <li className={styles.navlink}>

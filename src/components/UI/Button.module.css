@@ -1,0 +1,14 @@
+.Button {
+    background: #c20707;
+    padding: 7px 20px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    transition: opacity .5s ease;
+    font-size: 12px;
+}
+.Button:hover {
+    opacity: .6;
+}
+

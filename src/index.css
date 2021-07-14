@@ -77,3 +77,6 @@ tspan {
     font-size: 9px;
     font-weight: bold;
 }
+.App {
+  position: relative;
+}

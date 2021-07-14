@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react'
 import styles from './Carteira.module.css'
 import Card from '../../UI/Card'
 import CarteiraBox from './CarteiraBox'
-import money from '../../../assets/img/money.svg'
-import contract from '../../../assets/img/contract.svg'
 import axios from 'axios'
 
 const Carteira = props => {
@@ -14,7 +12,6 @@ const Carteira = props => {
         (async() => {
             const response = await axios.get('/data/carteiras.json');
             setCarteiras(response.data);
-            console.log(carteiras)
         })();
     }, [])
 
@@ -24,7 +21,7 @@ const Carteira = props => {
             <p className="subtitle">Informação relativa a <span className={styles.bold}>45</span> grupos e <span className={styles.bold}>120</span> entidades</p>
             <Card >
                 <div className={styles['boxes-wrapper']}>
-                    {carteiras && carteiras.map(item => <CarteiraBox up={false} {...item} />)}
+                    {carteiras && carteiras.map(item => <CarteiraBox up={false} {...item} key={item.id}/>)}
                 </div>
             </Card>
         </div>

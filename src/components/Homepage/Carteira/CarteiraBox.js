@@ -19,7 +19,7 @@ const CarteiraBox = ({ up, title, value, src }) => {
                     <span className={`${up ? styles.triangleUp : styles.triangleDown}`}></span>
                 </div>
             </div>
-            <div className={styles['image-wrapper']}><img src={image} /></div>
+            <div className={styles['image-wrapper']}><img src={image} alt=""/></div>
         </div>
     )
 

@@ -20,7 +20,7 @@
             "id": 3,
             "type": "visita",
             "iconUrl": "business-man.svg",
-            "title": "visitaa a M. Coutinho SGPS",
+            "title": "Visita a M. Coutinho SGPS",
             "date": "22-02-2021 - 10:00 AM"
             
         },
@@ -28,7 +28,7 @@
             "id": 4,
             "type": "visita",
             "iconUrl": "business-man.svg",
-            "title": "visitaa a barbosa e boinas cs",
+            "title": "Visita a Barbosa e Boinas CS",
             "date": "25-02-2021 - 11:30 AM"
             
         },
@@ -36,7 +36,7 @@
             "id": 5,
             "type": "nota",
             "iconUrl": "contrato.svg",
-            "title": "Nota sobre adidas portugal sa",
+            "title": "Nota sobre Adidas Portugal S.A",
             "date": "02-03-2021"
             
         },
