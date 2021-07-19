@@ -21,8 +21,6 @@ const Agenda = props => {
             const response = await axios.get('/data/agendaItems.json');
             setAgendaItems(response.data);
         })();
-
-
     }, [])
 
 

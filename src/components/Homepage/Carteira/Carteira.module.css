@@ -1,6 +1,7 @@
 .wrapper {
     margin-top: 50px; 
     grid-area: carteira;
+    position: relative;
 }
 
 .boxes-wrapper {
@@ -8,10 +9,29 @@
     gap: 20px;
     align-items: center;
     flex-wrap: wrap;
+    margin: 0 10px;
 }
 .bold {
     font-weight: bold;
     color: black;
+}
+.chevron {
+    position: absolute;
+    top: calc(50% + 20px);
+    right: 10px;
+    transform: translate(10px, -50%);
+    margin: 0 10px;
+    cursor: pointer;
+    transition: opacity .4s ease;
+}
+.chevron:hover {
+    opacity: .6;
+}
+.chevron.left {
+    position: absolute;
+    top: calc(50% + 20px);
+    left: -10px;
+    transform: translate(10px, -50%) rotate(-180deg);
 }
 @media screen and (max-width: 1200px) {
     .wrapper {

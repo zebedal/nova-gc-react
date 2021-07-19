@@ -6,7 +6,6 @@ import Agenda from '../components/Homepage/Agenda/Agenda'
 
 const HomePage = props => {
 
-    console.log('HOMEPAGE BEING RENDERED...')
 
     return (
         <div className={styles.wrapper}>

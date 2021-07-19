@@ -1,6 +1,6 @@
 .wrapper {
     grid-area: agenda;
-    margin-left: 80px;
+    margin-left: 40px;
     justify-self: flex-end;
     width: 430px;
     position: relative;

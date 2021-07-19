@@ -66,7 +66,7 @@ h5 {
 }
 /* Chart styles */
 #chartdiv {
-    width: 52%;
+    width: 60%;
     height: 284px;
     flex: 1 1 350px;
 }
@@ -79,4 +79,14 @@ tspan {
 }
 .App {
   position: relative;
+}
+
+.rec-swipable {
+  /* gap: 10px !important; */
+}
+.rec-carousel-item  {
+  /* padding: 0 5px !important; */
+}
+.rec-item-wrapper {
+  padding: 10px !important;
 }

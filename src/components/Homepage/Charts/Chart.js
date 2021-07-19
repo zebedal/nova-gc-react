@@ -62,7 +62,7 @@ categoryAxis.renderer.minGridDistance = 30;
 
 let label = categoryAxis.renderer.labels.template;
 label.wrap = true;
-label.maxWidth = 85;
+label.maxWidth = 75;
 
 let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 valueAxis.title.text = "TCV";
