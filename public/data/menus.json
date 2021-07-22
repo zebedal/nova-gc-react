@@ -5,13 +5,13 @@
        "subMenuItems" : [
           {
              "SubMenuId": 13,
-             "subMenuUrl": "",
+             "subMenuUrl": "/",
              "menuText": "A minha carteira",
              "MenuToolTip": ""
           },
           {
             "SubMenuId": 14,
-            "subMenuUrl": "",
+            "subMenuUrl": "entidades",
             "menuText": "Entidades da carteira",
             "MenuToolTip": ""
          },
