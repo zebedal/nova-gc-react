@@ -81,12 +81,6 @@ tspan {
   position: relative;
 }
 
-.rec-swipable {
-  /* gap: 10px !important; */
-}
-.rec-carousel-item  {
-  /* padding: 0 5px !important; */
-}
 .rec-item-wrapper {
   padding: 10px !important;
 }
