@@ -1,0 +1,76 @@
+.filter-bar {
+    width: fit-content;
+    margin-left: auto;
+}
+.filter-bar > div > span {
+    font-size: 12px;
+    font-family: montserrat-bold;
+    margin-right: 5px;
+}
+.filter-bar > div  {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.filter-wrapper {
+    border: 1px solid rgba(0,0,0, .2);
+    border-radius: 5px;
+    position: relative;
+    margin-left: 10px;
+    z-index: 9;
+    width: 120px;
+    display: flex;
+    z-index: 9;
+}
+.filter-wrapper > div:nth-child(1) {
+    width: 80%;
+    padding: 5px 20px;
+    font-size: 12px;
+    font-family: montserrat-regular;
+    
+}
+.filter-wrapper > div:nth-child(2) {
+    width: 20%;
+    background: #485461;
+    padding: 0 5px;
+    border: 1px solid rgba(0,0,0, .3);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.options {
+    position: absolute;
+    top: 28px;
+    width: 100%;
+    height: auto;
+    font-size: 12px;
+    font-family: montserrat-regular;
+    padding: 5px 20px;
+    cursor: pointer;
+    transition: all .3s ease;
+    pointer-events: none;
+    opacity: 0;
+    cursor: pointer;
+    background: #485461;
+    z-index: 1;
+    color: white;
+    border-radius: 5px;
+}
+.options.open {
+    opacity: 1;
+    pointer-events: all;
+}
+.options > div {
+    opacity: 1;
+    transition: opacity .3s ease;
+}
+.options > div:hover {
+    opacity: .7;
+}
+.options > div:not(:nth-child(1)) {
+    margin-top: 8px;
+}

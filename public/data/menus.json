@@ -6,140 +6,110 @@
           {
              "SubMenuId": 13,
              "subMenuUrl": "/",
-             "menuText": "A minha carteira",
-             "MenuToolTip": ""
+             "menuText": "A minha carteira"
+             
           },
           {
             "SubMenuId": 14,
             "subMenuUrl": "entidades",
-            "menuText": "Entidades da carteira",
-            "MenuToolTip": ""
+            "menuText": "Entidades da carteira"
+            
          },
          {
             "SubMenuId": 15,
             "subMenuUrl": "",
-            "menuText": "Entidades fora da carteira",
-            "MenuToolTip": ""
+            "menuText": "Entidades fora da carteira"
+            
          },
          {
             "SubMenuId": 16,
             "subMenuUrl": "",
-            "menuText": "Índice digital",
-            "MenuToolTip": ""
+            "menuText": "Índice digital"
+            
          },
          {
             "SubMenuId": 17,
             "subMenuUrl": "",
-            "menuText": "Hotline",
-            "MenuToolTip": ""
+            "menuText": "Hotline"
+            
          }
-       ],
-       "MenuIconUrl":null,
-       "MenuActivo":1,
-       "MenuToolTip":"Carteira e Entidades",
-       "MenuUrl":null
+       ]
     },
     {
        "MenuId":64,
-       "MenuHTMLId":"0064_Pipe",
-       "MenuOnClick":null,
        "MenuText":"Pipeline",
        "subMenuItems" : [
          {
             "SubMenuId": 13,
-            "subMenuUrl": "",
-            "menuText": "Sub menu item 1",
-            "MenuToolTip": ""
+            "subMenuUrl": "gerir",
+            "menuText": "Gerir"
+         
          },
          {
            "SubMenuId": 14,
            "subMenuUrl": "",
-           "menuText": "Sub menu item 2",
-           "MenuToolTip": ""
+           "menuText": "Sub menu item 2"
+           
         },
         {
            "SubMenuId": 15,
            "subMenuUrl": "",
-           "menuText": "Sub menu item 3",
-           "MenuToolTip": ""
+           "menuText": "Sub menu item 3"
+           
         },
         {
            "SubMenuId": 16,
            "subMenuUrl": "",
-           "menuText": "Sub menu item 4",
-           "MenuToolTip": ""
+           "menuText": "Sub menu item 4"
+           
         },
         {
            "SubMenuId": 17,
            "subMenuUrl": "",
-           "menuText": "Sub menu item 5",
-           "MenuToolTip": ""
+           "menuText": "Sub menu item 5"
+           
         }
-      ],
-       "MenuIconUrl":null,
-       "MenuActivo":1,
-       "MenuToolTip":"Gestão de Pipeline",
-       "MenuActivoDesc":null,
-       "MenuUrl":null,
-       "MenuOrd":0,
-       "MenuFooter":null
+      ]
     },
     {
        "MenuId":71,
-       "MenuHTMLId":"0071_Perf",
-       "MenuOnClick":null,
        "MenuText":"Performance",
        "subMenuItems" : [
          {
             "SubMenuId": 13,
             "subMenuUrl": "",
-            "menuText": "Sub menu item 1",
-            "MenuToolTip": ""
+            "menuText": "Sub menu item 1"
+            
          },
          {
            "SubMenuId": 14,
            "subMenuUrl": "",
-           "menuText": "Sub menu item 2",
-           "MenuToolTip": ""
+           "menuText": "Sub menu item 2"
+           
         },
         {
            "SubMenuId": 15,
            "subMenuUrl": "",
-           "menuText": "Sub menu item 3",
-           "MenuToolTip": ""
+           "menuText": "Sub menu item 3"
+           
         },
         {
            "SubMenuId": 16,
            "subMenuUrl": "",
-           "menuText": "Sub menu item 4",
-           "MenuToolTip": ""
+           "menuText": "Sub menu item 4"
+           
         },
         {
            "SubMenuId": 17,
            "subMenuUrl": "",
-           "menuText": "Sub menu item 5",
-           "MenuToolTip": ""
+           "menuText": "Sub menu item 5"
+           
         }
-      ],
-       "MenuIconUrl":null,
-       "MenuActivo":1,
-       "MenuToolTip":"Para mais dados de Performance, verifique a Gestão Comercial 2.0",
-       "MenuActivoDesc":null,
-       "MenuUrl":null,
-       "MenuOrd":0,
-       "MenuFooter":null
+      ]
     },
     {
        "MenuId":98,
-       "MenuHTMLId":"0098_Acoes",
-       "MenuOnClick":null,
-       "MenuText":"Ações",
-       "MenuIconUrl":null,
-       "MenuActivo":1,
-       "MenuToolTip":"Menu Ações",
-       "MenuActivoDesc":null,
-       "MenuUrl":null,
-       "MenuOrd":0,
-       "MenuFooter":null
+       "MenuText":"Ações"
+       
     }
  ]

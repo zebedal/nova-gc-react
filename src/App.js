@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 /* import {useAxios} from './custom-hooks/useAxios' */
 import {Route} from 'react-router-dom'
 import Entidades from './pages/Entidades';
+import Gerir from './pages/Gerir';
 
 function App() {
 
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path="/entidades" exact>
               <Entidades />
+          </Route>
+          <Route path="/gerir" exact>
+              <Gerir />
           </Route>
         </Layout>
       </Suspense>

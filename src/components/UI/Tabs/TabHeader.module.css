@@ -1,0 +1,38 @@
+
+.tabs-header {
+
+}
+.tab-title {
+    display: inline-block;
+    padding: 10px 10px 30px 10px;
+    font-family: montserrat-bold;
+    font-size: 12px;
+    border-radius: 10px;
+    transform: translateY(20px);
+    cursor: pointer;
+    transition: opacity .3s ease;
+}
+.tab-title:not(:nth-child(1)) {
+    margin-left: 10px;
+}
+.tab-title:hover {
+    opacity: .7;
+}
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+.tab-title-name {
+    margin-left: 5px;
+    text-transform: uppercase;
+}
+.tab-title.active {
+    background: #485461;
+    color: white;
+}
+.tab-title svg path {
+    fill: #363636;
+}
+.tab-title.active svg path{
+    fill: white;
+}

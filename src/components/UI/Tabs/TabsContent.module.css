@@ -1,0 +1,6 @@
+.tab-content {
+    opacity: 1;
+}
+.tab-content.active {
+    opacity: 1;
+}
