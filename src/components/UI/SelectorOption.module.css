@@ -1,0 +1,18 @@
+.selectorLine {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.selectorLine:not(:nth-child(1)) {
+    margin-top: 7px;
+}
+.selectorLine input {
+    display: none;
+}
+.text {
+    float: left;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    color: var(--text-color);
+}

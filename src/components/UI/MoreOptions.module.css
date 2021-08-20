@@ -1,0 +1,25 @@
+.wrapper {
+    position: relative;
+}
+.selectorWrapper {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,.2);
+    padding: 15px 25px;
+}
+
+
+/* .button {
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+    float: right;
+    width: 20px;
+    height: 20px;
+    border: 1px solid red;
+    border-radius: 50%;
+    cursor: pointer;
+} */

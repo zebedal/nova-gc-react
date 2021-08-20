@@ -27,7 +27,7 @@ const Agenda = props => {
     return (
         <div className={styles.wrapper}>
             <Card >
-                <MoreOptions />
+                <MoreOptions absolute={true} />
                 <h5>Agenda</h5>
                 <p className="subtitle">Últimos 15 dias</p>
                 <div className={styles['agenda-items-wrapper']}>

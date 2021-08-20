@@ -7,7 +7,6 @@ import Carousel from 'react-elastic-carousel';
 import chevron from '../../../assets/img/chevron-right.svg'
 
 
-
 const Carteira = props => {
 
     const breakPoints = [
