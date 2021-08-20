@@ -1,10 +1,23 @@
-import { useState, useEffect } from 'react'
+
 import styles from './Snapshot.module.css'
 import Chart from 'react-apexcharts'
+import Spinner from '../UI/Spinner'
+
 
 const chartOptions = {
     options: {
+        legend: {
+            show: true,
+            fontSize: '11px',
+            labels: {
+                useSeriesColors: false
+            },
+            markers: {
+                fillColors: ['#D53FE6', '#B019C1', '#10800C', '#EB0000', '#828282']
+            }
+        },
       chart: {
+        
         background: '#fff',
         toolbar: {
             show: true,
@@ -38,9 +51,6 @@ const chartOptions = {
           barHeight: '40px',
            /*borderRadius: 20*/ 
         }
-    },
-    legend: {
-        show: false
     },
     dataLabels: {
         enabled: false
@@ -79,23 +89,82 @@ const chartOptions = {
   };
 
   const chartOptions2= {
-  
+    options: {
+        legend: {
+            show: true,
+            fontSize: '11px',
+            labels: {
+                useSeriesColors: false
+            },
+            markers: {
+                fillColors: ['#D53FE6', '#B019C1', '#10800C', '#EB0000', '#828282']
+            }
+        },
+      chart: {
+        
+        background: '#fff',
+        toolbar: {
+            show: true,
+            tools: {
+              download: true,
+              selection: true,
+              zoom: true,
+              zoomin: true,
+              zoomout: true,
+              pan: true,
+              reset: true
+            },
+        },
+        zoom: {
+            enabled: true
+        },
+        width: "100%",
+        height: 280,
+        type: "bar",
+        stacked: true,
+      },
+      title: {
+        text: 'Sales for something',
+        style: {
+            fontSize: '12px'
+        }
+      },
+      plotOptions: {
+        bar: {
+          horizontal: true,
+          barHeight: '40px',
+           /*borderRadius: 20*/ 
+        }
+    },
+    dataLabels: {
+        enabled: false
+    },
+    fill: {
+        colors: ['#D53FE6', '#B019C1', '#10800C', '#EB0000', '#828282']
+      },
+      xaxis: {
+        categories: ['Nova Receita', 'ICT', 'IOT'],
+        tickPlacement: 'on',
+
+      }
+    },
     series: [
+        
       {
         name: "Métrica 1",
-        data: [190000, 250000]
+        data: [150000, 150000, 150000]
       },
       {
         name: "Métrica 2",
-        data: [30000, 60000]
+        data: [75000, 150000, 40000]
       },
       {
         name: "Métrica 3",
-        data: [50000, 40000]
+        data: [75000, 50000, 30900]
       },
       {
         name: "Métrica 4",
-        data: [25000, 50000]
+        data: [40000, 40000, 20000]
       },
       {
         name: "Métrica 5",
@@ -105,30 +174,98 @@ const chartOptions = {
   };
 
   const chartOptions3 = {
-    series: [
-      {
-        name: "Métrica 1",
-        data: [190000, 250000]
+    options: {
+        legend: {
+            show: true,
+            fontSize: '11px',
+            labels: {
+                useSeriesColors: false
+            },
+            markers: {
+                fillColors: ['#D53FE6', '#B019C1', '#10800C', '#EB0000', '#828282']
+            }
+        },
+      chart: {
+        
+        background: '#fff',
+        toolbar: {
+            show: true,
+            tools: {
+              download: true,
+              selection: true,
+              zoom: true,
+              zoomin: true,
+              zoomout: true,
+              pan: true,
+              reset: true
+            },
+        },
+        zoom: {
+            enabled: true
+        },
+        width: "100%",
+        height: 280,
+        type: "bar",
+        stacked: true,
       },
-      {
-        name: "Métrica 2",
-        data: [30000, 60000]
+      title: {
+        text: 'Sales for something',
+        style: {
+            fontSize: '12px'
+        }
       },
-      {
-        name: "Métrica 3",
-        data: [50000, 40000]
+      plotOptions: {
+        bar: {
+          horizontal: true,
+          barHeight: '40px',
+           /*borderRadius: 20*/ 
+        }
+    },
+    dataLabels: {
+        enabled: false
+    },
+    fill: {
+        colors: ['#D53FE6', '#B019C1', '#10800C', '#EB0000', '#828282']
       },
-      {
-        name: "Métrica 4",
-        data: [25000, 50000]
-      },
-      {
-        name: "Métrica 5",
-        data: [20000]
+      xaxis: {
+        categories: ['Campanha A', 'Campanha B', 'Campanha C'],
+        tickPlacement: 'on',
+
       }
-    ]
+    },
+    series: [
+        {
+          name: "Métrica 1",
+          data: [75000, 150000, 150000]
+        },
+        {
+          name: "Métrica 2",
+          data: [45000, 150000, 40000]
+        },
+        {
+          name: "Métrica 3",
+          data: [150000, 50000, 30900]
+        },
+        {
+          name: "Métrica 4",
+          data: [40000, 40000, 20000]
+        },
+        {
+          name: "Métrica 5",
+          data: [20000]
+        }
+      ]
   };
-const Snapshot = props => {
+const Snapshot = ({data}) => {
+
+
+  if(!data) {
+    return (
+      <div className={styles.wrapper}>
+        <Spinner text="A carregar dados, por favor aguarde" textColor="" />
+      </div>
+    )
+  }
 
     return (
         <div className={styles.wrapper}>
@@ -137,7 +274,7 @@ const Snapshot = props => {
                 <div className={styles['header-wrapper']}>
                     <div className={styles.header}>
                         <span className={styles['big-number']}>38</span>
-                        <span className={styles['header-title']}>Oportunidade de negócio</span>
+                        <span className={styles['header-title']}>Oportunidades de negócio</span>
                     </div>
                     <div className={styles['header-content']}>
                         <div className={styles.grid}>
@@ -171,7 +308,7 @@ const Snapshot = props => {
             <div className={styles['header-wrapper']}>
                     <div className={styles.header}>
                         <span className={styles['big-number']} style={{color:'#9C0BAC'}}>38</span>
-                        <span className={styles['header-title']}>Oportunidade em curso</span>
+                        <span className={styles['header-title']}>Oportunidades em curso</span>
                     </div>
                     <div className={styles['header-content']}>
                         <div className={styles.grid}>
@@ -193,7 +330,7 @@ const Snapshot = props => {
 
                 <div className={styles['chart-wrapper']}>
                 <Chart
-                    options={chartOptions.options}
+                    options={chartOptions2.options}
                     series={chartOptions2.series}
                     type="bar"
                     height="250px"
@@ -205,7 +342,7 @@ const Snapshot = props => {
                 <div className={styles['header-wrapper']}>
                     <div className={styles.header}>
                         <span className={styles['big-number']} style={{color: '#10800C'}}>38</span>
-                        <span className={styles['header-title']}>Oportunidade c/ proposta</span>
+                        <span className={styles['header-title']}>Oportunidades c/ proposta</span>
                     </div>
                     <div className={styles['header-content']}>
                         <div className={styles.grid}>
@@ -227,7 +364,7 @@ const Snapshot = props => {
 
                 <div className={styles['chart-wrapper']}>
                 <Chart
-                    options={chartOptions.options}
+                    options={chartOptions3.options}
                     series={chartOptions3.series}
                     type="bar"
                     height="250px"

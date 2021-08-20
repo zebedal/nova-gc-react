@@ -15,6 +15,10 @@
   src: url(./assets/fonts/Montserrat-SemiBold.woff2) format("woff2");
 }
 
+:root {
+  --text-color: #363636;
+}
+
 /*scrollbar for chrome*/
 ::-webkit-scrollbar {
   width: 6px;
@@ -51,7 +55,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "montserrat-regular";
-  color: #363636;
+  color: var(--text-color);
 }
 a {
   text-decoration: none;

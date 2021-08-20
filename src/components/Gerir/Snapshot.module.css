@@ -1,12 +1,12 @@
 .wrapper {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 30px;
+    margin-top: 10px;
     gap: 30px;
+    
 }
 .column {
     flex:1;
-    
     display: flex;
     flex-direction: column;
 }
@@ -19,21 +19,24 @@
 .header {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
     gap: 20px
 }
 .big-number {
     font-family: montserrat-bold;
-    font-size: 50px;
+    font-size: calc(38px + (48 - 38) * (100vw - 400px) / (1440 - 550));
     color: #D53FE6;
 }
 .header-title {
     font-family: montserrat-bold;
-    font-size: 16px;
+    font-size: calc(12px + (16 - 12) * (100vw - 400px) / (1440 - 550));
 }
 .header-content {
     display: flex;
     align-items: center;
     gap: 15px;
+    justify-content: space-evenly;
+    
 }
 .grid{
     display: grid;
@@ -61,6 +64,7 @@
     font-family: montserrat-bold;
     font-size: 11px;
     white-space: nowrap;
+    color: var(--text-color);
 }
 .grid-row-value {
     font-family: montserrat-medium;
@@ -72,10 +76,15 @@
 }
 .tcv p{
     font-size: 15px;
-    font-family: montserrat-medium;
+    font-family: montserrat-bold;
     white-space: nowrap;
 }
 .chart-wrapper {
     position: relative;
     margin-top: 30px;
+}
+@media(max-width: 550px) {
+    .header-content {
+        flex-wrap: wrap;
+    }
 }

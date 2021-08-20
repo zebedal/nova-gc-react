@@ -1,6 +1,9 @@
 
-.tabs-header {
 
+.tabs-header > div:nth-child(2) {
+    align-self: flex-end;
+    margin-right: 35px;
+    margin-bottom: 5px;
 }
 .tab-title {
     display: inline-block;

@@ -2,7 +2,7 @@
 import styles from './Filtro.module.css'
 import { useState, useRef } from 'react'
 
-const Filtro = props => {
+const Filtro = ({absolute}) => {
 
     const [open, setOpen] = useState(false)
     const [filterValue, setFilterValue] = useState('Valor')
@@ -15,6 +15,8 @@ const Filtro = props => {
         setFilterValue(e.target.textContent)
         setOpen(false)
     }
+
+  
 
     return (
         <div className={styles['filter-bar']}>
