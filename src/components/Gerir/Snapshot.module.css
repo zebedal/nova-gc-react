@@ -1,9 +1,8 @@
 .wrapper {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: nowrap; */
     margin-top: 10px;
     gap: 30px;
-    
 }
 .column {
     flex:1;
@@ -89,5 +88,10 @@
 @media(max-width: 550px) {
     .header-content {
         flex-wrap: wrap;
+    }
+}
+@media(max-width: 1200px) {
+    .wrapper{
+        flex-wrap: wrap !important;
     }
 }

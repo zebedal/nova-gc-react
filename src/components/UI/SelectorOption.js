@@ -23,7 +23,7 @@ const SelectorOption = ({option, toggle, id, selected}) => {
 
     const anim = id === selected;
 
-    console.log(anim)
+ 
 
     return (
         <div className={styles.selectorLine} onClick={() => toggle(id)}>

@@ -256,16 +256,7 @@ const chartOptions = {
         }
       ]
   };
-const Snapshot = ({data}) => {
-
-
-  if(!data) {
-    return (
-      <div className={styles.wrapper}>
-        <Spinner text="A carregar dados, por favor aguarde" textColor="" />
-      </div>
-    )
-  }
+const Snapshot = () => {
 
     return (
         <div className={styles.wrapper}>

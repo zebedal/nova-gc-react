@@ -1,73 +1,55 @@
-
 import ReactDataGrid from '@inovua/reactdatagrid-community'
 import '@inovua/reactdatagrid-community/index.css'
+import React, { useEffect } from 'react'
 
 
 
-const Details = ({ data }) => {
+const DataGrid = ({ jsonData }) => {
 
-  
+    useEffect(() => {
+        console.log('Datagrid has been rendered...')
+    })
+
+    const data = jsonData
+
     const columnTitles = []
 
 
     const extractColumnNames = () => {
         const { NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV } = data[0]
-        let subset = {NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV }
-       
+        let subset = { NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV }
         for (const prop in subset) {
             columnTitles.push({
                 name: prop,
                 header: prop
             })
         }
-        console.log(columnTitles)
     }
     extractColumnNames()
 
     const rowData = () => {
-        return data.map((obj, index) => {
+        return data.map(obj => {
             let newObj = {}
             for (const columnObj of columnTitles) {
                 newObj = {
                     ...newObj,
-                    [columnObj.name]: obj[columnObj.name],
-                    id: index
+                    [columnObj.name]: obj[columnObj.name]
                 }
             }
             return newObj
         })
     }
-    
-
-
-    const gridStyle = { minHeight: 400 }
-
-
-
-    const handleRowSelection = (data) => {
-        console.log(data)
-    }
-
-
-
+    const gridStyle = { minHeight: 300 }
     return (
-       
-        
-      <div>
         <ReactDataGrid
+
             style={gridStyle}
             columns={columnTitles}
             dataSource={rowData}
-            checkboxColumn={true}
-            checkboxOnlyRowSelect={false}
-            idProperty="id"
-            onSelectionChange={handleRowSelection}
         />
-
-
-        </div>
     )
-
 }
 
-export default Details
+
+
+export default React.memo(DataGrid)

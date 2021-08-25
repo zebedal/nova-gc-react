@@ -95,3 +95,17 @@ tspan {
 .apexcharts-menu-item {
   font-size: 11px !important;
 }
+.InovuaReactDataGrid__cell {
+  font-family: montserrat-regular !important;
+  font-size: 12px !important;
+}
+.InovuaReactDataGrid__column-header__content {
+  font-family: montserrat-bold !important;
+  font-size: 14px !important;
+}
+.InovuaReactDataGrid {
+  margin-top: 30px;
+}
+.inovua-react-toolkit-checkbox__icon-wrapper {
+  fill: #485461 !important;
+}
