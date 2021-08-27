@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react'
+import React, { Suspense } from 'react'
 import Spinner from "./components/UI/Spinner";
 import HomePage from './pages/HomePage';
 /* import {useAxios} from './custom-hooks/useAxios' */
@@ -8,7 +8,7 @@ import Gerir from './pages/Gerir';
 
 function App() {
 
-  const Layout = React.lazy(() => import('./components/Layout'));
+  const Layout = React.lazy(() => import('./components/Layout/Layout'));
 
   return (
 

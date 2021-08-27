@@ -29,15 +29,19 @@ const circle = {
 }
 
 
-const MoreOptions = ({ absolute, selectorOptions }) => {
+const MoreOptions = ({ absolute, selectorOptions, toggleFilter }) => {
 
 
 
   const [selected, setSelected] = useState(0)
   const [selectorWrapperOpen, setSelectorWrapperOpen] = useState(false)
 
-  const handleSelectorClick = id => {
-      setSelected(id)
+  const handleSelectorClick = (id, option) => {
+    toggleFilter(option)
+    setSelected(id)
+    setTimeout(() => {
+        setSelectorWrapperOpen(false)
+    }, 1500)
   }
 
   const toggleSelectorWrapper = () => {
@@ -47,7 +51,7 @@ const MoreOptions = ({ absolute, selectorOptions }) => {
 
     return (
         <div className={styles.wrapper}>
-            <motion.svg width="27" height="24" viewBox="0 0 37 40" fill="none"
+            <motion.svg width="24" height="21" viewBox="0 0 37 40" fill="none"
                 style={{ position: `${absolute ? 'absolute' : ""}`, top: '0', right: '30px', cursor: 'pointer' }}
                 variants={variants} whileHover="hover" onClick={toggleSelectorWrapper}
             >
@@ -60,7 +64,12 @@ const MoreOptions = ({ absolute, selectorOptions }) => {
             </motion.svg>
             <div className={`${styles.selectorWrapper} ${selectorWrapperOpen ? styles.open : ""}`}>
                     {selectorOptions.map((option, index) =>
-                        <SelectorOption option={option} toggle={handleSelectorClick} key={index} id={index} selected={selected} />
+                        <SelectorOption 
+                        option={option} 
+                        toggle={handleSelectorClick} 
+                        key={index} 
+                        id={index} 
+                        selected={selected} />
                     )}
             </div>
         </div>

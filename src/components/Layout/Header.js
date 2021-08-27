@@ -3,7 +3,7 @@ import Logo from '../UI/Logo'
 import styles from './Header.module.css'
 import axios from 'axios';
 import NavLink from './NavLink';
-import UserInfo from '../UserInfo'
+import UserInfo from './UserInfo'
 
 const Header = props => {
 

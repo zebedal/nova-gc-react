@@ -10,9 +10,12 @@
     display: none;
 }
 .text {
-    float: left;
-    font-size: 14px;
+    font-size: 12px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     color: var(--text-color);
+    transition: opacity .3s ease;
+}
+.text:hover {
+    opacity: .6;
 }

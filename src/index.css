@@ -19,19 +19,17 @@
   --text-color: #363636;
 }
 
-/*scrollbar for chrome*/
-::-webkit-scrollbar {
+
+/* ::-webkit-scrollbar {
   width: 6px;
   height: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background: #474555;
@@ -40,7 +38,7 @@
 
 ::-webkit-scrollbar-thumb:window-inactive {
   background: #474555;
-}
+} */
 
 * {
   margin: 0;
@@ -95,17 +93,29 @@ tspan {
 .apexcharts-menu-item {
   font-size: 11px !important;
 }
+.apexcharts-legend-text {
+  font-size: 10px !important;
+}
 .InovuaReactDataGrid__cell {
   font-family: montserrat-regular !important;
-  font-size: 12px !important;
+  font-size: 10px !important;
 }
 .InovuaReactDataGrid__column-header__content {
   font-family: montserrat-bold !important;
-  font-size: 14px !important;
+  font-size: 12px !important;
 }
 .InovuaReactDataGrid {
   margin-top: 30px;
 }
 .inovua-react-toolkit-checkbox__icon-wrapper {
   fill: #485461 !important;
+}
+.InovuaReactDataGrid--theme-default-light .InovuaReactDataGrid__row--odd.InovuaReactDataGrid__row--selected {
+  background: rgb(235, 235, 235) !important;
+  outline: none !important;
+  border: none !important;
+}
+.inovua-react-scroll-container__scroller, .inovua-react-toolkit-combo-box__value__display-value {
+  font-size: 11px !important;
+  font-weight: bold;
 }

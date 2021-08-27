@@ -1,7 +1,7 @@
 import styles from './UserInfo.module.css'
-import Cogwheel from '../assets/img/cogwheel.svg'
-import Bell from '../assets/img/bell.svg'
-import Avatar from '../assets/img/avatar.jpg'
+import Cogwheel from '../../assets/img/cogwheel.svg'
+import Bell from '../../assets/img/bell.svg'
+import Avatar from '../../assets/img/avatar.jpg'
 
 const userInfo = props => (
     <div className={styles.wrapper}>

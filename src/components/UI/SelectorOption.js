@@ -26,7 +26,7 @@ const SelectorOption = ({option, toggle, id, selected}) => {
  
 
     return (
-        <div className={styles.selectorLine} onClick={() => toggle(id)}>
+        <div className={styles.selectorLine} onClick={() => toggle(id, option)}>
             <div>
                 <input type="checkbox" name="item-21" />
                 <label htmlFor="item-21" className={styles.text}>{option}</label>

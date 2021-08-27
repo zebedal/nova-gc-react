@@ -6,24 +6,3 @@
 .tab-content.active {
     opacity: 1;
 }
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.card-header > p {
-    font-size: 12px;
-    font-family: montserrat-regular;
-    font-style: italic;
-}
-.more-options-wrapper {
-    display: flex;
-    align-items: center;
-    margin-right: 8px;
-    gap: 15px;
-}
-.more-options-wrapper span {
-    font-family: montserrat-regular;
-    font-size: 14px;
-}

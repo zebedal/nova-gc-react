@@ -1,0 +1,35 @@
+.wrapper {
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* overflow-x: hidden; */
+    margin-top: 10px;
+    gap: 30px;
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+.card-header > p {
+    font-size: 12px;
+    font-family: montserrat-regular;
+    font-style: italic;
+}
+.more-options-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+    gap: 15px;
+}
+.more-options-wrapper span {
+    font-family: montserrat-bold;
+    font-size: 12px;
+}
+
+@media(max-width: 1200px) {
+    .wrapper{
+        flex-wrap: wrap !important;
+    }
+}

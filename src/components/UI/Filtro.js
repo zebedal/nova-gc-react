@@ -1,6 +1,6 @@
 
 import styles from './Filtro.module.css'
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 
 const Filtro = ({absolute}) => {
 

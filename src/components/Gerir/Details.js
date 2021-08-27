@@ -20,7 +20,6 @@ const Details = ({ data }) => {
                 header: prop
             })
         }
-        console.log(columnTitles)
     }
     extractColumnNames()
 
@@ -59,9 +58,12 @@ const Details = ({ data }) => {
             columns={columnTitles}
             dataSource={rowData}
             checkboxColumn={true}
-            checkboxOnlyRowSelect={false}
+            checkboxOnlyRowSelect={true}
             idProperty="id"
             onSelectionChange={handleRowSelection}
+            enableKeyboardNavigation={false}
+            pagination="local"
+            defaultLimit={10}
         />
 
 

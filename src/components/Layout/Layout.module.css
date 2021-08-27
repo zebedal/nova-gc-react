@@ -2,7 +2,7 @@
     position: relative;
     width: 90vw;
     max-width: 1680px;
-    height: 90vh;
+    height: 94vh;
     overflow-x: hidden;
     overflow-y: auto;
     background-color: #f2f4f9;
@@ -10,8 +10,8 @@
     box-shadow: 2px 2px 4px rgba(0,0,0, .5);
 }
 .inner-wrapper {
-    padding: 30px 80px;
-    height: calc(100% - 80px);
+    padding: 20px 80px;
+    /* height: calc(100% - 80px); */
 }
 
 @media screen and (max-width: 700px) {

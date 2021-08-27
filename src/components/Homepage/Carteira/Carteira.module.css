@@ -17,7 +17,7 @@
 }
 .chevron {
     position: absolute;
-    top: calc(50% + 20px);
+    top: calc(50% + 2px);
     right: 10px;
     transform: translate(10px, -50%);
     margin: 0 10px;
@@ -29,7 +29,7 @@
 }
 .chevron.left {
     position: absolute;
-    top: calc(50% + 20px);
+    top: calc(50% + 2px);
     left: -10px;
     transform: translate(10px, -50%) rotate(-180deg);
 }
