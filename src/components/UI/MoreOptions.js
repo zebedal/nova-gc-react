@@ -17,9 +17,7 @@ const circle = {
         x: 0
     },
     hover: (custom) => ({
-
         x: custom,
-        r: 5,
         transition: {
             type: 'spring',
             stiffness: 400

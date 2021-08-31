@@ -1,12 +1,13 @@
 .Button {
-    background: #c20707;
-    padding: 7px 20px;
-    border-radius: 20px;
+    /* background: #c20707; */
+    padding: 10px 15px;
+    border-radius: 10px;
     color: white;
     cursor: pointer;
     display: inline-block;
     transition: opacity .5s ease;
-    font-size: 12px;
+    font-size: 11px;
+    font-family: montserrat-medium;
 }
 .Button:hover {
     opacity: .6;

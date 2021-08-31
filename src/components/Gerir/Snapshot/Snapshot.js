@@ -18,6 +18,8 @@ const Snapshot = ({ data }) => {
   
   const snapShotData = data
 
+  console.log(snapShotData)
+
   const snapShotInitialState = {
     panel1HeaderData: {
       total: snapShotData.volume.TotalEmAberto,
@@ -76,19 +78,25 @@ const Snapshot = ({ data }) => {
           chartData={chartsOptions.chart1} 
           headerData={selectedData.panel1HeaderData} 
           title="Oportunidades em aberto" 
-          filterValor={selectedFilter.current === 'valor' ? true : false} 
+          filterValor={selectedFilter.current === 'valor' ? true : false}
+          color="#D53FE6"
+          gridItemsColor="#363636"
           />
         <SnapshotPanel 
         chartData={chartsOptions.chart2} 
         headerData={selectedData.panel2HeaderData}  
         title="Oportunidades em curso" 
         filterValor={selectedFilter.current === 'valor' ? true : false}
+        color="#a612ba"
+        gridItemsColor="#363636"
         />
         <SnapshotPanel 
         chartData={chartsOptions.chart3} 
         headerData={selectedData.panel3HeaderData} 
         title="Oportunidades c/ proposta" 
         filterValor={selectedFilter.current === 'valor' ? true : false}
+        color="#10800c"
+        gridItemsColor="#363636"
         />
       </div>
     </Fragment>

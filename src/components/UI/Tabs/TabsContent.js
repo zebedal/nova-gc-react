@@ -1,6 +1,5 @@
 import Card from "../Card"
 import styles from './TabsContent.module.css'
-import MoreOptions from '../../UI/MoreOptions'
 import Snapshot from '../../Gerir/Snapshot/Snapshot'
 import { useState, useEffect } from "react"
 import axios from 'axios'
@@ -15,7 +14,6 @@ const TabsContent = ({ activeTab }) => {
 
 
     const [data, setData] = useState(null)
-
 
     useEffect(() => {
         setTimeout(async () => {
@@ -49,7 +47,7 @@ const TabsContent = ({ activeTab }) => {
             </div>}
 
             {activeTab === 1 && <div className={`${styles['tab-content']}`} >
-                <Tables data={data} />
+                <Tables data={data.GerirOportEstado} />
             </div>}
 
             {activeTab === 2 && <div className={`${styles['tab-content']}`} >

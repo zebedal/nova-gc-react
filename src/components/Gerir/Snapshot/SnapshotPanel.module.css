@@ -20,10 +20,10 @@
     font-family: montserrat-bold;
     /* font-size: calc(38px + (48 - 38) * (100vw - 400px) / (1440 - 550)); */
     font-size: 38px;
-    color: #D53FE6;
 }
 .big-number.reduce {
-    font-size: 24px;
+    font-size: 23px;
+    line-height: 38px;
 }
 .header-title {
     font-family: montserrat-bold;
@@ -70,12 +70,8 @@
     color: var(--text-color);
 }
 .grid-row-value {
-    font-family: montserrat-medium;
-    font-size: 13px;
-    color: #920EA1;
-}
-.grid-row-value.green {
-    color: #10800C;
+    font-family: montserrat-bold;
+    font-size: 11px;
 }
 .tcv p{
     font-size: 14px;

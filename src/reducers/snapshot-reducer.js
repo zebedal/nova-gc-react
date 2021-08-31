@@ -10,32 +10,35 @@ export const snapShotDataReducer = (state, action) => {
     }
     if(action.type === 'valor') {
 
-      const total1 = +action.payload.TotalEmAbertoTCV.toFixed(2);
-      const total2 = +action.payload.TotalEmCursoTCV.toFixed(2);
-      const total3 = +action.payload.TotalComPropostaTCV.toFixed(2);
+      const total1 = Math.round(+action.payload.TotalEmAbertoTCV);
+      const total2 = Math.round(+action.payload.TotalEmCursoTCV);
+      const total3 = Math.round(+action.payload.TotalComPropostaTCV)
+      const refAberto = Math.round(+action.payload.TotalRefidelizacaoEmAbertoTCVVDF)
+      const refCurso = Math.round(+action.payload.TotalRefidelizacaoEmCursoTCVVDF)
+      const refProposta = Math.round(+action.payload.TotalRefidelizacaoComPropostaTCVVDF)
 
       return {
         panel1HeaderData: {
-          total: total1.toLocaleString('en-US'),
+          total: total1.toLocaleString('pt-BR') + '€',
           novaReceitaVodafone: action.payload.TotalNovaReceitaEmAbertoTCVVDF,
           novaReceitaUser: action.payload.TotalNovaReceitaEmAbertoTCVUser,
-          refidelizaçãoVodafone: action.payload.TotalRefidelizacaoEmAbertoTCVVDF,
+          refidelizaçãoVodafone: refAberto.toLocaleString('pt-BR') + '€',
           refidelizaçãoUser: action.payload.TotalRefidelizacaoEmAbertoTCVUser,
           tcv: 67812
         },
         panel2HeaderData: {
-          total: total2.toLocaleString('en-US'),
+          total: total2.toLocaleString('pt-BR') + '€',
           novaReceitaVodafone: action.payload.TotalNovaReceitaEmCursoTCVVDF,
           novaReceitaUser: action.payload.TotalNovaReceitaEmCursoTCVUser,
-          refidelizaçãoVodafone: action.payload.TotalRefidelizacaoEmCursoTCVVDF,
+          refidelizaçãoVodafone: refCurso.toLocaleString('pt-BR') + '€',
           refidelizaçãoUser: action.payload.TotalRefidelizacaoEmCursoTCVUser,
           tcv: 2456782
         },
         panel3HeaderData: {
-          total: total3.toLocaleString('en-US'),
+          total: total3.toLocaleString('pt-BR') + '€',
           novaReceitaVodafone: action.payload.TotalNovaReceitaComPropostaTCVVDF,
           novaReceitaUser: action.payload.TotalNovaReceitaComPropostaTCVUser,
-          refidelizaçãoVodafone: action.payload.TotalRefidelizacaoComPropostaTCVVDF,
+          refidelizaçãoVodafone: refProposta.toLocaleString('pt-BR') + '€',
           refidelizaçãoUser: action.payload.TotalRefidelizacaoComPropostaTCVUser,
           tcv: 178213
         }
