@@ -4,21 +4,26 @@ import SnapshotPanel from './SnapshotPanel';
 import { useReducer, useRef } from 'react'
 import MoreOptions from '../../UI/MoreOptions';
 import { Fragment } from 'react'
-import { chartsOptions } from '../../../data/snapShotChartData';
-import {snapShotDataReducer} from '../../../reducers/snapshot-reducer'
+import { chartOptions } from '../../../data/snapShotChartData'
+import { snapShotDataReducer } from '../../../reducers/snapshot-reducer'
 
-const snapShotSelectorOptions = ['volume', 'valor'];
+const snapShotSelectorOptions = ['Volume', 'Valor'];
 
-
-
+const splitString = arr => {
+  return arr.map(string => {
+    if (string.includes('#')) {
+      const splitedArr = string.split(' ')
+       splitedArr.splice(0, 1)
+       return splitedArr.join(' ')
+    } else return string
+    
+  })
+}
 
 const Snapshot = ({ data }) => {
 
-  
-  
-  const snapShotData = data
 
-  console.log(snapShotData)
+  const snapShotData = data
 
   const snapShotInitialState = {
     panel1HeaderData: {
@@ -52,15 +57,27 @@ const Snapshot = ({ data }) => {
 
 
   const toggleFilter = (filter) => {
-    if (filter === 'volume') {
+    if (filter === 'Volume') {
       selectedFilter.current = filter
-      dispatchFilter({payload: snapShotInitialState, type: 'volume'})
+      dispatchFilter({ payload: snapShotInitialState, type: 'volume' })
     }
-    if (filter === 'valor') {
+    if (filter === 'Valor') {
       selectedFilter.current = filter
-      dispatchFilter({payload: snapShotData.valor, type: 'valor'})
+      dispatchFilter({ payload: snapShotData.valor, type: 'valor' })
     }
   }
+
+
+  //Mapeamento dos objectos
+  const chart1 = JSON.parse(JSON.stringify(chartOptions))
+  chart1.options.xaxis.categories = snapShotData.dataGraficos.GraficoOportunidadesEmAberto.LabelsGrafico
+  chart1.series = snapShotData.dataGraficos.GraficoOportunidadesEmAberto.SerieGrafico
+
+  const chart3 = JSON.parse(JSON.stringify(chartOptions))
+  chart3.options.xaxis.categories = splitString(snapShotData.dataGraficos.GraficoOportunidadesComProposta.LabelsGrafico)
+  chart3.series = snapShotData.dataGraficos.GraficoOportunidadesComProposta.SerieGrafico
+
+
 
   return (
     <Fragment>
@@ -74,29 +91,32 @@ const Snapshot = ({ data }) => {
         </div>
       </div>
       <div className={styles.wrapper}>
-        <SnapshotPanel 
-          chartData={chartsOptions.chart1} 
-          headerData={selectedData.panel1HeaderData} 
-          title="Oportunidades em aberto" 
-          filterValor={selectedFilter.current === 'valor' ? true : false}
+        <SnapshotPanel
+          chartData={chart1.series}
+          chartOptions={chart1.options}
+          headerData={selectedData.panel1HeaderData}
+          title="Oportunidades em aberto"
+          filterValor={selectedFilter.current === 'Valor' ? true : false}
           color="#D53FE6"
           gridItemsColor="#363636"
-          />
-        <SnapshotPanel 
-        chartData={chartsOptions.chart2} 
-        headerData={selectedData.panel2HeaderData}  
-        title="Oportunidades em curso" 
-        filterValor={selectedFilter.current === 'valor' ? true : false}
-        color="#a612ba"
-        gridItemsColor="#363636"
         />
-        <SnapshotPanel 
-        chartData={chartsOptions.chart3} 
-        headerData={selectedData.panel3HeaderData} 
-        title="Oportunidades c/ proposta" 
-        filterValor={selectedFilter.current === 'valor' ? true : false}
-        color="#10800c"
-        gridItemsColor="#363636"
+        <SnapshotPanel
+          chartData={[]}
+          chartOptions={chart1.options}
+          headerData={selectedData.panel2HeaderData}
+          title="Oportunidades em curso"
+          filterValor={selectedFilter.current === 'Valor' ? true : false}
+          color="#a612ba"
+          gridItemsColor="#363636"
+        /> 
+        <SnapshotPanel
+          chartData={chart3.series}
+          chartOptions={chart3.options}
+          headerData={selectedData.panel3HeaderData}
+          title="Oportunidades c/ proposta"
+          filterValor={selectedFilter.current === 'Valor' ? true : false}
+          color="#10800c"
+          gridItemsColor="#363636"
         />
       </div>
     </Fragment>

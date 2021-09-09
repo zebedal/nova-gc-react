@@ -8,12 +8,11 @@ import Details from '../../Gerir/Details'
 import Spinner from "../Spinner"
 
 
-
-
 const TabsContent = ({ activeTab }) => {
 
 
     const [data, setData] = useState(null)
+
 
     useEffect(() => {
         setTimeout(async () => {
@@ -33,10 +32,11 @@ const TabsContent = ({ activeTab }) => {
             </Card>
         )
     }
-
+ 
     const {GerirValor} =  data
     const {GerirVolume} =  data
-    const snapshotData = {valor: GerirValor, volume: GerirVolume}
+    const snapshotData = {valor: GerirValor, volume: GerirVolume, dataGraficos:data.GraficoEstado }
+    
     
 
     return (
@@ -55,6 +55,7 @@ const TabsContent = ({ activeTab }) => {
             </div>}
 
         </Card>
+        
     )
 }
 

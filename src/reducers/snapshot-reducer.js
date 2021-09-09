@@ -2,7 +2,6 @@
 
 export const snapShotDataReducer = (state, action) => {
 
-  
     if(action.type === 'volume') {
       return {
         ...action.payload

@@ -1,11 +1,12 @@
 import styles from './SnapshotPanel.module.css'
 import Chart from 'react-apexcharts'
 
-const SnapshotPanel = ({headerData, chartData, title, filterValor, color, gridItemsColor}) => {
+const SnapshotPanel = ({headerData, chartData, chartOptions, title, filterValor, color, gridItemsColor}) => {
    
     const {novaReceitaUser, novaReceitaVodafone, refidelizaçãoUser, refidelizaçãoVodafone, tcv, total } =  headerData
   
-    
+
+
 
     return (
 
@@ -34,12 +35,14 @@ const SnapshotPanel = ({headerData, chartData, title, filterValor, color, gridIt
             </div>
 
             <div className={styles['chart-wrapper']}>
-                <Chart
-                    options={chartData.options}
-                    series={chartData.series}
+
+                {chartData.length !== 0 ?  <Chart
+                    options={chartOptions}
+                    series={chartData}
                     type="bar"
                     height="250px"
-                />
+                /> : <p style={{textAlign: 'center'}}>Não existem dados para o gráfico</p>}
+                
             </div>
         </div>
 
