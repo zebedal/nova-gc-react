@@ -1,0 +1,21 @@
+.flexWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+.box {
+    text-align: center;
+}
+.title, .value {
+    font-size: 10px;
+}
+.title {
+    font-family: montserrat-regular;
+    color: var(--text-color);
+}
+.value {
+    font-weight: bold;
+    color: var(--text-color);
+    margin-top: 3px;
+}

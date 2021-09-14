@@ -1,0 +1,39 @@
+.buttonWrapper {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid rgba(0,0,0, .1);
+    text-align: center;
+    cursor: pointer;
+    transition: opacity .5s ease;
+}
+.buttonWrapper:hover {
+    opacity: .6;
+}
+.buttonWrapper > svg {
+    height: 28px;
+}
+.buttonWrapper > svg {
+    height: 28px;
+}
+
+.buttonWrapper.active > svg  path{
+    fill: var(--red)
+}
+.buttonWrapper.active > svg  rect{
+    fill: var(--red)
+}
+.title {
+    font-family: montserrat-bold;
+    color: var(--text-color);
+    font-size: 9px;
+}
+@media(max-width: 1440px) {
+    .buttonWrapper {
+        padding: 12px 0;
+    }
+}
+@media(max-width: 950px) {
+    .buttonWrapper {
+        flex-basis: 50%;
+    }
+}
