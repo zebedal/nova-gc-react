@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import {Route} from 'react-router-dom'
 import Entidades from './pages/Entidades';
 import Gerir from './pages/Gerir';
+import FichaEntidades from './pages/FichaEntidades';
 
 function App() {
 
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/gerir" exact>
               <Gerir />
+          </Route>
+          <Route path="/fichaentidades" exact>
+              <FichaEntidades />
           </Route>
         </Layout>
       </Suspense>

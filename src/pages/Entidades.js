@@ -1,6 +1,8 @@
 import React from 'react'
 import Card from '../components/UI/Card'
 
+
+
 const Entidades = props => {
 
 

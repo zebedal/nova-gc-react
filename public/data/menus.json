@@ -11,8 +11,8 @@
           },
           {
             "SubMenuId": 14,
-            "subMenuUrl": "entidades",
-            "menuText": "Entidades da carteira"
+            "subMenuUrl": "fichaentidades",
+            "menuText": "Ficha Entidades"
             
          },
          {

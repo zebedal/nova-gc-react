@@ -4,11 +4,12 @@ import Pipeline from '../components/Homepage/Pipeline/Pipeline'
 import Agenda from '../components/Homepage/Agenda/Agenda'
 
 
+
 const HomePage = props => {
 
 
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} >
             <div className={styles['title-wrapper']}><h5 style={{ textTransform: 'none' }}>Bem vindo à <span>Gestão Comercial</span></h5></div>
             <Carteira />
             <Pipeline />
@@ -17,7 +18,5 @@ const HomePage = props => {
     )
 
 }
-
-
 
 export default HomePage
