@@ -11,8 +11,12 @@
 .buttonWrapper:hover {
     opacity: .6;
 }
+.buttonWrapper:hover > svg {
+    transform: scale(1.2);
+}
 .buttonWrapper > svg {
     height: 28px;
+    transition: all .5s ease;
 }
 .buttonWrapper > svg {
     height: 28px;
