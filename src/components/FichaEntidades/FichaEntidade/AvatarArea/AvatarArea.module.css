@@ -1,0 +1,26 @@
+.wrapper {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0;
+}
+.nomeEntidade {
+    font-family: montserrat-bold;
+    color: var(--text-color);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.nomeGrupo {
+    font-family: montserrat-medium;
+    color: var(--text-color);
+    font-size: 12px;
+    margin-top: 10px;
+}
+.light {
+    font-size: 10px;
+    margin-top: 5px;
+}
+.strong {
+    font-weight: 600;
+    color: var(--text-color);
+}

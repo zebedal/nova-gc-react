@@ -1,0 +1,16 @@
+.wrapper {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.wrapper > div {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.title {
+    font-family: montserrat-light;
+    font-size: 10px;
+}
