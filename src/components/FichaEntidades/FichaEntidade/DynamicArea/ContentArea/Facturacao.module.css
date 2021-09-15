@@ -1,0 +1,23 @@
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    
+}
+.total {
+    font-family: montserrat-medium;
+    font-size: 20px;
+    border-bottom: 1px solid rgba(0,0,0, .1);
+    padding: 20px;
+}
+.title {
+    font-family: montserrat-regular;
+    color: var(--light-text-color);
+    font-size:12px;
+}
+.value {
+    font-family: montserrat-medium;
+    color: var(--text-color);
+    font-size:14px;
+}

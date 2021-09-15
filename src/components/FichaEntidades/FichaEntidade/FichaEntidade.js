@@ -32,6 +32,7 @@ const FichaEntidade = props => {
 
     return (
 
+
         <Card padding={0} margin={'57px 0 0 0'}>
             <motion.div className={styles.wrapper} variants={variants} initial="start" animate={collapsed ? "end" : ""}>
 

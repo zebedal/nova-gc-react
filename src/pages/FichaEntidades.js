@@ -7,6 +7,7 @@ import QlikTabs from '../components/FichaEntidades/QlikTabs/QlikTabs'
 
 const FichaEntidades = props => {
 
+
     return (
         <div className={styles.wrapper}>
             <FichaEntidade />
