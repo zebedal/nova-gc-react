@@ -1,19 +1,18 @@
 .buttonWrapper {
-   
     flex: 1;
     padding: 12px 20px;
     border: 1px solid rgba(0,0,0, .1);
     text-align: center;
     cursor: pointer;
     transition: opacity .5s ease;
- 
+
 }
 .buttonWrapper:hover {
     opacity: .6;
 }
 .buttonWrapper > svg {
     height: 28px;
-
+}
 .buttonWrapper:hover > svg {
     transform: scale(1.2);
 }

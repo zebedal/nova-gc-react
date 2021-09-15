@@ -1,9 +1,4 @@
 
-import React from 'react'
-
-const Fidelizacao = props => (
-    <div>
-        <h1>Fidelizacao</h1>
 import styles from './Fidelizacao.module.css'
 
 const Fidelizacao = props => (

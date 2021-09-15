@@ -1,10 +1,6 @@
 import styles  from './Servicos.module.css'
 
 const Servicos = props => (
-    <div>
-        <h1>Servicos</h1>
-
-const Servicos = props => (
     <div className={styles.grid}>
         <span className={styles.gridTitles}>VM</span>
         <span className={styles.gridTitles}>DM</span>

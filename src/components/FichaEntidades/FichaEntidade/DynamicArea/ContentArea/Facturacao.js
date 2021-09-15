@@ -1,11 +1,4 @@
-
-import React from 'react'
-const Facturacao = props => (
-    <div>
-        <h1>Facturacao</h1>
-
 import styles from './Facturacao.module.css'
-import { Fragment } from 'react'
 
 const Facturacao = props => (
     <div style={{textAlign: 'center'}}>
