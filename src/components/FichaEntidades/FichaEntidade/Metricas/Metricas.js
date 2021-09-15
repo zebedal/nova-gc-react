@@ -1,7 +1,23 @@
 import styles from './Metricas.module.css'
+import { motion } from 'framer-motion'
+
+const variants = {
+    start: {
+        y: 50,
+        opacity:0
+    },
+    end: {
+        y: 0,
+        opacity:1,
+        transition: {
+            delay:0.5,
+            duration: 0.5
+        }
+    }
+}
 
 const Metricas = props => (
-    <div className={styles.flexWrapper}>
+    <motion.div className={styles.flexWrapper} variants={variants} initial="start" animate="end">
 
         <div className={styles.box}>
             <p className={styles.title}>Qualificado</p>
@@ -28,7 +44,7 @@ const Metricas = props => (
             <p className={styles.value}>2</p>
         </div>
 
-    </div>
+    </motion.div>
 )
 
 export default Metricas

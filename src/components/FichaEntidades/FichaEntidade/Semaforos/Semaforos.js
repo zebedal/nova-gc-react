@@ -1,7 +1,23 @@
 import styles from './Semaforos.module.css'
+import { motion } from 'framer-motion'
+
+const variants = {
+    start: {
+        opacity:0,
+        y: 50,
+    },
+    end: {
+        opacity:1,
+        y: 0,
+        transition: {
+            delay:0.5,
+            duration: 0.5
+        }
+    }
+}
 
 const Semaforos = props => (
-    <div className={styles.wrapper}>
+    <motion.div className={styles.wrapper} variants={variants} initial="start" animate="end">
 
         <div>
             <svg width="16.25" height="16.25" viewBox="0 0 16.25 16.25">
@@ -26,7 +42,7 @@ const Semaforos = props => (
 
         <p className={styles.title}>-- Índice Digital</p>
 
-    </div>
+    </motion.div>
 )
 
 export default Semaforos
