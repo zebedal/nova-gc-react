@@ -33,7 +33,7 @@ function App() {
         console.log(e)
       }
     }
-    getTicket()
+    /* getTicket() */
 
   }, [])
 
@@ -60,7 +60,7 @@ function App() {
             <FichaEntidades />
           </Route>
 
-          <div style={{ background: 'white', position: 'fixed', top: 0, left:'450px',zIndex:'999999999', padding: '20px' }}>
+          {/* <div style={{ background: 'white', position: 'fixed', top: 0, left:'450px',zIndex:'999999999', padding: '20px' }}>
   
             {!qlikTicket && <Spinner text="A carregar ticket do QLik" />}
             {qlikTicket &&
@@ -69,7 +69,7 @@ function App() {
                 <img src={`http://gestcomqap-ebu.internal.vodafone.com/imgticket/resources/img/core/dark_noise_16x16.png?qlikTicket=${qlikTicket}`} alt="" />
               </div>
             }
-          </div>
+          </div> */}
         </Layout>
       </Suspense>
     </div >
