@@ -3,10 +3,10 @@ import Spinner from "./components/UI/Spinner";
 import HomePage from './pages/HomePage';
 /* import {useAxios} from './custom-hooks/useAxios' */
 import { Route } from 'react-router-dom'
-import Entidades from './pages/Entidades';
 import Gerir from './pages/Gerir';
 import FichaEntidades from './pages/FichaEntidades';
 import Layout from './components/Layout/Layout'
+import EntidadesCarteira from './pages/EntidadesCarteira'
 
 
 function App() {
@@ -50,11 +50,11 @@ function App() {
           <Route path="/" exact>
             <HomePage />
           </Route>
-          <Route path="/entidades" exact>
-            <Entidades />
-          </Route>
           <Route path="/gerir" exact>
             <Gerir />
+          </Route>
+          <Route path="/carteira" exact>
+            <EntidadesCarteira />
           </Route>
           <Route path="/fichaentidades" exact>
             <FichaEntidades />
