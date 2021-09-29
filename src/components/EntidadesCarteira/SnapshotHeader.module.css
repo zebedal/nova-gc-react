@@ -1,0 +1,15 @@
+.Header {
+    display: flex;
+    justify-content: center;
+    margin: -10px;
+}
+.Header > div {
+    flex: 1;
+    padding: 15px;
+    background: rgb(224, 224, 224);
+    text-align: center;
+    margin: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}

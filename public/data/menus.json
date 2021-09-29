@@ -1,11 +1,16 @@
 [
+   {
+      "MenuId":6,
+      "MenuText":"Home",
+      "subMenuUrl": "/"
+   },
     {
        "MenuId":7,
        "MenuText":"Entidades",
        "subMenuItems" : [
           {
              "SubMenuId": 13,
-             "subMenuUrl": "/",
+             "subMenuUrl": "carteira",
              "menuText": "A minha carteira"
              
           },

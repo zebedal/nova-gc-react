@@ -7,9 +7,6 @@ import Agenda from '../components/Homepage/Agenda/Agenda'
 
 const HomePage = props => {
 
-    
-
-
     return (
         <div className={styles.wrapper} >
           

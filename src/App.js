@@ -3,10 +3,10 @@ import Spinner from "./components/UI/Spinner";
 import HomePage from './pages/HomePage';
 /* import {useAxios} from './custom-hooks/useAxios' */
 import { Route } from 'react-router-dom'
-import Entidades from './pages/Entidades';
 import Gerir from './pages/Gerir';
 import FichaEntidades from './pages/FichaEntidades';
 import Layout from './components/Layout/Layout'
+import EntidadesCarteira from './pages/EntidadesCarteira'
 
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
         console.log(e)
       }
     }
-    getTicket()
+    /* getTicket() */
 
   }, [])
 
@@ -50,17 +50,17 @@ function App() {
           <Route path="/" exact>
             <HomePage />
           </Route>
-          <Route path="/entidades" exact>
-            <Entidades />
-          </Route>
           <Route path="/gerir" exact>
             <Gerir />
+          </Route>
+          <Route path="/carteira" exact>
+            <EntidadesCarteira />
           </Route>
           <Route path="/fichaentidades" exact>
             <FichaEntidades />
           </Route>
 
-          <div style={{ background: 'white', position: 'fixed', top: 0, left:'450px',zIndex:'999999999', padding: '20px' }}>
+          {/* <div style={{ background: 'white', position: 'fixed', top: 0, left:'450px',zIndex:'999999999', padding: '20px' }}>
   
             {!qlikTicket && <Spinner text="A carregar ticket do QLik" />}
             {qlikTicket &&
@@ -69,7 +69,7 @@ function App() {
                 <img src={`http://gestcomqap-ebu.internal.vodafone.com/imgticket/resources/img/core/dark_noise_16x16.png?qlikTicket=${qlikTicket}`} alt="" />
               </div>
             }
-          </div>
+          </div> */}
         </Layout>
       </Suspense>
     </div >
