@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Card from '../../UI/Card'
 import AvatarArea from './AvatarArea/AvatarArea'
 import DynamicArea from './DynamicArea/DynamicArea'
@@ -22,12 +22,157 @@ const variants = {
     }
 }
 
+const config = {
+    host: "qlikdev.internal.vodafone.com",
+    prefix: "/imgticket/",
+    port: 443,
+    isSecure: window.location.protocol === "https:"
+};
+
+const qlikObj = [
+	{
+		id: "QV_EtdTjc",
+		qlikId: "EtdTjc"
+	},{
+		id: "QV_aPmPM",
+		qlikId: "aPmPM"
+	},{
+		id: "QV_daAeebC",
+		qlikId: "daAeebC"
+	},{
+		id: "QV_MPmVp",
+		qlikId: "MPmVp"
+	},{
+		id: "QV_caPxJ",
+		qlikId: "caPxJ"
+	},{
+		id: "QV_TtGHTP",
+		qlikId: "TtGHTP"
+	},{
+		id: "QV_JmxHD",
+		qlikId: "JmxHD"
+	},{
+		id: "QV_jqKqZP",
+		qlikId: "jqKqZP"
+	},{
+		id: "QV_mHSa",
+		qlikId: "mHSa"
+	},{
+		id: "QV_TqMT",
+		qlikId: "TqMT"
+	},{
+		id: "QV_jjjFLvW",
+		qlikId: "jjjFLvW"
+	},{
+		id: "QV_nYgKA",
+		qlikId: "nYgKA"
+	},{
+		id: "QV_PwgCj",
+		qlikId: "PwgCj"
+	},{
+		id: "QV_mrkZRX",
+		qlikId: "mrkZRX"
+	},{
+		id: "QV_QHQQG",
+		qlikId: "QHQQG"
+	},{
+		id: "QV_WEffv",
+		qlikId: "WEffv"
+	},{
+		id: "QV_JfrMK",
+		qlikId: "JfrMK"
+	},{
+		id: "QV_CXNmmkh",
+		qlikId: "CXNmmkh"
+	},{
+		id: "QV_KsfLwfC",
+		qlikId: "KsfLwfC"
+	},{
+		id: "QV_prmyUe",
+		qlikId: "prmyUe"
+	},{
+		id: "QV_PJqsmh",
+		qlikId: "PJqsmh"
+	},{
+		id: "QV_hsAuLgU",
+		qlikId: "hsAuLgU"
+	},{
+		id: "QV_MUfMAK",
+		qlikId: "MUfMAK"
+	},{
+		id: "QV_jUhgQbx",
+		qlikId: "jUhgQbx"
+	},{
+		id: "QV_YSckE",
+		qlikId: "YSckE"
+	},{
+		id: "QV_SUWBBeW",
+		qlikId: "SUWBBeW"
+	},{
+		id: "QV_MZHKqX",
+		qlikId: "MZHKqX"
+	},{
+		id: "QV_VDDMjk",
+		qlikId: "VDDMjk"
+	},{
+		id: "QV_jMUDAKM",
+		qlikId: "jMUDAKM"
+	},{
+		id: "QV_jdgTC",
+		qlikId: "jdgTC"
+	},{
+		id: "QV_BrVzGSW",
+		qlikId: "BrVzGSW"
+	},{
+		id: "QV_xtCFD",
+		qlikId: "xtCFD"
+	},{
+		id: "QV_BYGYnMH",
+		qlikId: "BYGYnMH"
+	},{
+		id: "QV_JdNuuh",
+		qlikId: "JdNuuh"
+	},{
+		id: "QV_ZdtTs",
+		qlikId: "ZdtTs"
+	},{
+		id: "QV_JPLLGw",
+		qlikId: "JPLLGw"
+	},{
+		id: "QV_uaPjMt",
+		qlikId: "uaPjMt"
+	},{
+		id: "QV_PCcyDde",
+		qlikId: "PCcyDde"
+	},{
+		id: "QV_RUPZsJ",
+		qlikId: "RUPZsJ"
+	},{
+		id: "QV_ZRXmRsv",
+		qlikId: "ZRXmRsv"
+	}
+]
+
 const FichaEntidade = props => {
+
+    useEffect(() => {
+        return () => {
+            document.getElementById("CurrentSelections").style.display = "none";
+        }
+    }, []);
 
     const [collapsed, setCollapsed] = useState(false)
 
     const togglePanel = () => {
         setCollapsed(!collapsed)
+        setTimeout(() => {
+            window.qlik.resize();
+        }, 500)
+    }
+
+    if(window.appFichaEntidade === undefined){
+        window.appFichaEntidade = window.qlik.openApp('d6efc0c9-b356-4428-9251-5e80e5e9fafe', config);
+        window.appFichaEntidade.getObject("CurrentSelections", "CurrentSelections");
     }
 
     return (
