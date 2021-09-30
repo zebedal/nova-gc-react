@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import Logo from '../UI/Logo'
 import styles from './Header.module.css'
 import axios from 'axios';
@@ -19,15 +19,18 @@ const Header = props => {
     }, []);
 
     return (
-    <header className={styles.Header}>
-        <nav>
-            <Logo />
-            <ul>
-                 {menuItems.map((item, index) => <NavLink {...item} key={index}/>)} 
-            </ul>
-        </nav>
-        <UserInfo />
-    </header>
+    <Fragment>
+        <header className={styles.Header}>
+            <nav>
+                <Logo />
+                <ul>
+                    {menuItems.map((item, index) => <NavLink {...item} key={index}/>)} 
+                </ul>
+            </nav>
+            <UserInfo />
+        </header>
+        <div id="CurrentSelections" style={{height: "40px"}}></div>
+    </Fragment>
     )
 }
 
