@@ -39,7 +39,7 @@ const Details = ({ data }) => {
         })
     }
 
-console.log(rowData())
+
 
     const gridStyle = { height: smallWindow ? '300px' : '400px'  } 
 

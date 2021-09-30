@@ -9,7 +9,6 @@ const Tables = ({ data }) => {
 
     const [dataSource, setDataSource] = useState(data)
     const [gridRef, setGridRef] = useState(null);
-    const [searchText, setSearchText] = useState('');
 
     const smallWindow = window.innerHeight < 920
 
@@ -44,28 +43,6 @@ const Tables = ({ data }) => {
     ]
 
     const gridStyle = { height: smallWindow ? '300px' : '400px' }
-
-
-    const onSearchChange = ({ target: { value } }) => {
-        const visibleColumns = gridRef.current.visibleColumns;
-
-    
-
-        if(value === "") {
-            setDataSource(data)
-            return false
-        }
-    
-        const lowerSearchText = value && value.toLowerCase();
-        const newData = dataSource.filter((p) => {
-          return visibleColumns.reduce((acc, col) => {
-            const v = (p[col.id] + '').toLowerCase(); // get string value
-            return acc || v.indexOf(lowerSearchText) != -1; // make the search case insensitive
-          }, false);
-        });
-        setSearchText(value);
-        setDataSource(newData);
-      };
 
     const handleExport = () => {
         const columns = gridRef.current.visibleColumns;
@@ -104,7 +81,7 @@ const Tables = ({ data }) => {
 
             <div style={{ marginLeft: ' auto', width: 'fit-content' }}>
                 <label htmlFor="search" style={{ float: 'left', fontSize: '12px', marginRight: '5px' }}>Procurar:</label>
-                <input type="text" style={{ outline: 'none'}} onChange={onSearchChange} />
+                <input type="text" style={{ outline: 'none'}} />
             </div>
 
 
