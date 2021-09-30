@@ -1,7 +1,7 @@
 
 
-const Fidelizacao = props => (
-    <svg  width="24.529" height="23.16" viewBox="0 0 24.529 23.16">
+const Fidelizacao = ({width = 24.529 }) => (
+    <svg  width={width} height={width} viewBox="0 0 24.529 23.16">
   <g  transform="translate(0 -14.29)">
     <path  d="M203.951,106.483a6.107,6.107,0,0,0-8.636,0l-3.434,3.434,1.08,1.08a1.527,1.527,0,0,0,2.159,0l3.009-3.009,6.428,6.428A6.108,6.108,0,0,0,203.951,106.483Z" transform="translate(-182.688 -86.073)" fill="#363636"/>
     <path  d="M392.152,14.29l-3.086,3.086a7.547,7.547,0,0,1,5.716,5.94l.174-.174V14.29Z" transform="translate(-370.426 0)" fill="#363636"/>

@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import styles from './HomePage.module.css'
 import Carteira from '../components/Homepage/Carteira/Carteira'
 import Pipeline from '../components/Homepage/Pipeline/Pipeline'
@@ -7,11 +6,6 @@ import Agenda from '../components/Homepage/Agenda/Agenda'
 
 
 const HomePage = props => {
-
-    useEffect(() => {
-        document.getElementById("CurrentSelections").style.display = "none";
-    }, []);
-
 
     return (
         <div className={styles.wrapper} >
