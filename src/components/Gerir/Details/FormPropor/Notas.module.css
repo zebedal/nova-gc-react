@@ -1,0 +1,24 @@
+.wrapper  {
+    position: relative;
+    height: auto;
+    background: white;
+}
+textarea {
+    width: 100%;
+    resize: none;
+    padding: 10px;
+    font-size: 12px;
+    border: 1px solid rgba(0,0,0,.3);
+}
+.flex {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+.Button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}

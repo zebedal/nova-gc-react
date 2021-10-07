@@ -4,7 +4,7 @@ import Snapshot from '../../Gerir/Snapshot/Snapshot'
 import { useState, useEffect } from "react"
 import axios from 'axios'
 import Tables from "../../Gerir/Tables"
-import Details from '../../Gerir/Details'
+import Details from '../../Gerir/Details/Details'
 import Spinner from "../Spinner"
 
 
