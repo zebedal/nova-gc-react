@@ -9,6 +9,8 @@ const CriarProposta = ({ close, oportunidadesSelecionadas }) => {
 
     const [success, setSuccess] = useState(false)
     const [linhasNegocioSimulador, setLinhasNegocioSimulador] = useState([])
+    const [listaContactos, setListaContactos] = useState([])
+    const [listaSfids, setListaSfids] = useState([])
 
     const gridStyle = { minHeight: 130, marginTop: 10 }
 
@@ -63,9 +65,14 @@ const CriarProposta = ({ close, oportunidadesSelecionadas }) => {
 
     useEffect(() => {
         (async () => {
-           const response = await axios.get('/data/linhasNegocioSimulador.json');
-           setLinhasNegocioSimulador(response.data);
-           
+           const linhasNegocio =  axios.get('/data/linhasNegocioSimulador.json');
+           const contactos =  axios.get('/data/getContactos.json');
+           const sfids =  axios.get('/data/getSfids.json');
+           Promise.all([linhasNegocio, contactos, sfids]).then(res => {
+               setLinhasNegocioSimulador(res[0].data)
+               setListaContactos(res[1].data)
+               setListaSfids(res[2].data)
+           })
        })();
        
    }, []);
@@ -120,8 +127,7 @@ const CriarProposta = ({ close, oportunidadesSelecionadas }) => {
                 <div>
                     <p className={styles.subTitle}>Confirme o responsável para a proposta (ficará como owner da proposta em simulador)</p>
                     <select className={styles.formControl}>
-                        <option>opção do sfid numero 1</option>
-                        <option>opção do sfid numero 2</option>
+                    {listaSfids.map(sfid => <option key={sfid.SFID}>{sfid.Description}</option>)}
                     </select>
                 </div>
                 <br/>
@@ -129,8 +135,7 @@ const CriarProposta = ({ close, oportunidadesSelecionadas }) => {
                 <div>
                     <p className={styles.subTitle}>Escolha o contacto do cliente para a proposta (poderá criar um contacto novo se ainda não existir)</p>
                     <select className={styles.formControl}>
-                        <option>Alexndre Costa (título não definido)</option>
-                        <option>Alexndre Costa (título não definido)</option>
+                        {listaContactos.map(contacto => <option key={contacto.ContactoId}>{contacto.Nome}</option>)}
                     </select>
                 </div>
 
