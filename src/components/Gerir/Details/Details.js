@@ -62,7 +62,6 @@ const Details = ({ data }) => {
             arr = [...arr, { ...data.selected[key] }]
         }
 
-
         if (arr.length === 1) {
             setShowAllButtons(true)
             setSelectedRowData(arr)
@@ -80,10 +79,10 @@ const Details = ({ data }) => {
                 setSelectedRowData(arr)
             }
 
+        } else {
+            setShowAllButtons(false)
+            setSelectedRowData(arr)
         }
-
-
-
 
     }
 

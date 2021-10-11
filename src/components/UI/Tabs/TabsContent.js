@@ -18,7 +18,7 @@ const TabsContent = ({ activeTab }) => {
         setTimeout(async () => {
             const res = await axios.get('/data/oportunidades.json')
             setData(res.data)
-        }, 2000)
+        }, 1000)
 
     }, [])
 
