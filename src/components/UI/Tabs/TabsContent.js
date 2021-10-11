@@ -15,6 +15,7 @@ const TabsContent = ({ activeTab }) => {
 
 
     useEffect(() => {
+        console.log('Running tabs content')
         setTimeout(async () => {
             const res = await axios.get('/data/oportunidades.json')
             setData(res.data)
@@ -23,16 +24,15 @@ const TabsContent = ({ activeTab }) => {
     }, [])
 
 
-    if (!data) {
-        return (
-            <Card margin={0} padding={40}>
-                <div className={styles.wrapper}>
-                    <Spinner text="A carregar dados, por favor aguarde" textColor="" />
-                </div>
-            </Card>
-        )
+    if(!data) {
+        return <Card margin={0} padding={30}>
+        <div style={{padding:'50px 0'}}>
+            <Spinner text="A carregar dados, por favor aguarde..." width={30} height={35} />
+        </div>
+        </Card>
+        
     }
- 
+
     const {GerirValor} =  data
     const {GerirVolume} =  data
     const snapshotData = {valor: GerirValor, volume: GerirVolume, dataGraficos:data.GraficoEstado }

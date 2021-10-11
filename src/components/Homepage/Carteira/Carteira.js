@@ -33,7 +33,7 @@ const Carteira = props => {
             <p className="subtitle">Informação relativa a <span className={styles.bold}>45</span> grupos e <span className={styles.bold}>120</span> entidades</p>
             <Card padding={13}>
                 <div className={styles['boxes-wrapper']}>
-                    <Carousel itemsToShow={3} pagination={false} showArrows={false} ref={carousel} breakPoints={breakPoints}>
+                    <Carousel itemsToShow={3} pagination={false} showArrows={false} ref={carousel} breakPoints={breakPoints} itemPadding={[10,10]}>
                         {carteiras && carteiras.map(item => <CarteiraBox up={false} {...item} key={item.id} />)} 
                     </Carousel>
                 </div>

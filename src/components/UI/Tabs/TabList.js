@@ -28,6 +28,7 @@ const tabsHeader = [
 const TabList = props => {
 
     const [activeTab, setActiveTab] = useState(0)
+    
 
     const toggleActiveTab = (tabId) => {
         setActiveTab(tabId)
@@ -36,7 +37,7 @@ const TabList = props => {
     return (
         <Fragment>
             <TabsHeader toggleActive={toggleActiveTab} items={tabsHeader} activeTab={activeTab} />
-            <TabsContent activeTab={activeTab}/>
+            <TabsContent activeTab={activeTab} />
         </Fragment>
     )
 }

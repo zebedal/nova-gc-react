@@ -4,6 +4,7 @@ import Success from '../../../../UI/Success'
 import ReactDataGrid from '@inovua/reactdatagrid-community'
 import '@inovua/reactdatagrid-community/index.css'
 import axios from 'axios'
+import Spinner from '../../../../UI/Spinner'
 
 const CriarProposta = ({ close, oportunidadesSelecionadas }) => {
 
@@ -11,6 +12,7 @@ const CriarProposta = ({ close, oportunidadesSelecionadas }) => {
     const [linhasNegocioSimulador, setLinhasNegocioSimulador] = useState([])
     const [listaContactos, setListaContactos] = useState([])
     const [listaSfids, setListaSfids] = useState([])
+    const [loadingData, setLoadingData] = useState(true)
 
     const gridStyle = { minHeight: 130, marginTop: 10 }
 
@@ -72,12 +74,18 @@ const CriarProposta = ({ close, oportunidadesSelecionadas }) => {
                setLinhasNegocioSimulador(res[0].data)
                setListaContactos(res[1].data)
                setListaSfids(res[2].data)
+               setLoadingData(false)
            })
        })();
        
    }, []);
 
 
+   if(loadingData) {
+       return <div style={{padding:'50px'}}>
+           <Spinner text="A carregar dados, por favor aguarde..." textColor="var(--text-color)" width={30} height={35}  />
+       </div>
+   }
 
     return (
         <div className={styles.wrapper}>

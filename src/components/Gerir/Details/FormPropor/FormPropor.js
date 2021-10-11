@@ -8,6 +8,7 @@ import Notas from './Notas'
 import OportunidadesSelecionadas from './OportunidadesSelecionadas'
 import PropostasAssociar from './PropostasAssociar'
 import Spinner from '../../../UI/Spinner'
+import checkmark from '../../../../assets/img/checkmark_verde.svg'
 
 
 const breakPoints = [
@@ -99,14 +100,17 @@ const FormPropor = ({ formContent }) => {
     const [propostas, setPropostas] = useState(marteladas)
     const [filteredPropostas, setFilteredPropostas] = useState(marteladas)
     const [notasOpen, setNotasOpen] = useState(false)
+    const [savedNotas, setSavedNotas] = useState("")
     const [criarProposta, setCriarProposta] = useState(false)
     const [selectedProposta, setSelectedProposta] = useState(false)
+    
+    
     const notasInput = useRef("")
 
 
 
     const saveNotas = () => {
-        notasInput.current = notasInput.current.value
+        setSavedNotas(notasInput.current.value)
         setNotasOpen(false)
     }
 
@@ -134,6 +138,7 @@ const FormPropor = ({ formContent }) => {
         setCriarProposta(!criarProposta)
     }
 
+
     return (
 
         <div className={styles.wrapper}>
@@ -158,6 +163,7 @@ const FormPropor = ({ formContent }) => {
                     <div className={styles.informacoes} onClick={() => setNotasOpen(true)} style={{ padding: '0 10px' }}>
                         <img src={notes} style={{ verticalAlign: 'middle' }} alt="" />&nbsp;
                         <span style={{ fontSize: '12px' }}>Inserir Informações</span>
+                        {(!notasOpen && savedNotas.length > 0) && <img src={checkmark} alt="" /> }
                     </div>
                     <div>
                         <Button text="Criar" backgroundColor="var(--red)" click={toggleCriarProposta}>
@@ -173,7 +179,7 @@ const FormPropor = ({ formContent }) => {
             <Notas close={() => setNotasOpen(false)} opened={notasOpen} ref={notasInput} save={saveNotas} />
 
             {
-                criarProposta && <Suspense fallback={<Spinner text="A carregar dados..." />}>
+                criarProposta && <Suspense fallback={<Spinner text="A carregar dados..." width={30} heighht={35} />}>
                     <CriarProposta close={toggleCriarProposta} oportunidadesSelecionadas={oportunidades} />
                 </Suspense>
             }
