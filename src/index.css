@@ -59,11 +59,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "montserrat-regular";
+  font-family: montserrat-regular !important;
   color: var(--text-color);
 }
 p {
-  font-family: "montserrat-regular";
+  font-family: montserrat-regular !important;
   color: var(--light-text-color);
   font-size: 12px;
 }
@@ -88,7 +88,9 @@ h5 {
     height: 284px;
     flex: 1 1 350px;
 }
-
+label {
+  font-family: montserrat-regular !important;
+}
 tspan {
     font-size: 9px;
     font-weight: bold;
@@ -97,9 +99,9 @@ tspan {
   position: relative;
 }
 
-.rec-item-wrapper {
+/* .rec-item-wrapper {
   padding: 10px !important;
-}
+} */
 .apexcharts-menu-item {
   font-size: 11px !important;
 }
@@ -144,3 +146,22 @@ tspan {
   align-items: flex-end !important;
   top: -10px !important;
 }
+.inovua-react-pagination-toolbar__per-page-text, .inovua-react-pagination-toolbar__region {
+  font-family: montserrat-regular !important;
+}
+.inovua-react-toolkit-checkbox.inovua-react-toolkit-checkbox--theme-default-light.inovua-react-toolkit-checkbox--indeterminate .inovua-react-toolkit-checkbox__icon-wrapper svg {
+  background: var(--blue) !important;
+}
+/* .inovua-react-toolkit-checkbox.inovua-react-toolkit-checkbox--theme-default-light.inovua-react-toolkit-checkbox--indeterminate .inovua-react-toolkit-checkbox__icon-wrapper svg rect{
+  fill: white !important;
+} */
+.rec-item-wrapper {
+  width: auto !important;
+  /* padding: 10px 10px !important; */
+}
+/* .rec-carousel-item:nth-child(1) > .rec-item-wrapper {
+  padding: 10px 10px 10px 0 !important;
+} */
+.rec-slider-container {
+  margin: 0 !important;
+} 
