@@ -1,5 +1,5 @@
 import styles from './Notas.module.css'
-import React, {useState, Fragment} from 'react'
+import React, {useState} from 'react'
 import Success from '../../../UI/Success'
 
 const Notas = React.forwardRef((props, ref) => {

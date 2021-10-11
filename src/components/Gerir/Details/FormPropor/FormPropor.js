@@ -3,11 +3,11 @@ import Button from '../../../UI/Button'
 import create from '../../../../assets/img/create.svg'
 import union from '../../../../assets/img/union.svg'
 import notes from '../../../../assets/img/notes.svg'
-import { useState, useRef } from 'react'
+import React, { useState, useRef, Suspense } from 'react'
 import Notas from './Notas'
 import OportunidadesSelecionadas from './OportunidadesSelecionadas'
 import PropostasAssociar from './PropostasAssociar'
-
+import Spinner from '../../../UI/Spinner'
 
 
 const breakPoints = [
@@ -16,6 +16,8 @@ const breakPoints = [
     { width: 500, itemsToShow: 4, itemsToScroll: 1 },
     { width: 700, itemsToShow: 4, itemsToScroll: 1, pagination: true }, */
 ]
+
+const CriarProposta = React.lazy(() => import('./CriarProposta/CriarProposta'))
 
 const marteladas = [
     {
@@ -35,7 +37,7 @@ const marteladas = [
         linhaNegocio: 'Móvel',
         sfid: '15001015',
         estado: 'Em Curso (Sem Proposta)',
-        nif: 502008229,
+        nif: 505008229,
         selected: false
     },
     {
@@ -45,7 +47,7 @@ const marteladas = [
         linhaNegocio: 'Fixo',
         sfid: '15001015',
         estado: 'Em Curso (Sem Proposta)',
-        nif: 502008259,
+        nif: 505008259,
         selected: false
     },
     {
@@ -60,12 +62,32 @@ const marteladas = [
     },
     {
         id: 125432,
-        dataCriacao: '10-010-2021',
+        dataCriacao: '10-10-2021',
         entidade: 'Andrade & Sousa, Lda.',
         linhaNegocio: 'Fixo',
         sfid: '15001015',
         estado: 'Em Curso (Sem Proposta)',
-        nif: 502008829,
+        nif: 503008829,
+        selected: false
+    },
+    {
+        id: 9521475,
+        dataCriacao: '10-10-2021',
+        entidade: 'Montiperes & Filhos, S.A',
+        linhaNegocio: 'Fixo',
+        sfid: '15001015',
+        estado: 'Em Curso (Sem Proposta)',
+        nif: 503008829,
+        selected: false
+    },
+    {
+        id: 2541478,
+        dataCriacao: '10-10-2021',
+        entidade: 'Associação Mutualista Nossa Senhora',
+        linhaNegocio: 'Fixo',
+        sfid: '15001015',
+        estado: 'Em Curso (Sem Proposta)',
+        nif: 505008829,
         selected: false
     }
 ]
@@ -75,11 +97,12 @@ const FormPropor = ({ formContent }) => {
 
     const [oportunidades, setOportunidades] = useState(formContent)
     const [propostas, setPropostas] = useState(marteladas)
-    const  [filteredPropostas, setFilteredPropostas] = useState(marteladas)
+    const [filteredPropostas, setFilteredPropostas] = useState(marteladas)
     const [notasOpen, setNotasOpen] = useState(false)
+    const [criarProposta, setCriarProposta] = useState(false)
     const [selectedProposta, setSelectedProposta] = useState(false)
     const notasInput = useRef("")
-    
+
 
 
     const saveNotas = () => {
@@ -106,13 +129,18 @@ const FormPropor = ({ formContent }) => {
         setFilteredPropostas(newArr)
     }
 
+
+    const toggleCriarProposta = () => {
+        setCriarProposta(!criarProposta)
+    }
+
     return (
 
         <div className={styles.wrapper}>
-            <div className={`${styles.contentWrapper}`} style={{ display: notasOpen ? 'none' : 'block' }}>
+            <div className={`${styles.contentWrapper}`} style={{ display: notasOpen || criarProposta ? 'none' : 'block' }}>
 
-                <OportunidadesSelecionadas data={oportunidades} handler={deleteOportunidade}/>
 
+                <OportunidadesSelecionadas data={oportunidades} handler={deleteOportunidade} />
                 <div className={styles.Header}>
                     <h5>Tipo de acompanhamento</h5>
                     <div>
@@ -122,7 +150,6 @@ const FormPropor = ({ formContent }) => {
                         </select>
                     </div>
                 </div>
-
                 <PropostasAssociar initialData={propostas} filtered={filteredPropostas} handler={handlePropostas} setFiltered={setFilteredPropostas} />
 
                 <br />
@@ -133,13 +160,24 @@ const FormPropor = ({ formContent }) => {
                         <span style={{ fontSize: '12px' }}>Inserir Informações</span>
                     </div>
                     <div>
-                        <Button text="Criar" backgroundColor="var(--red)"><img src={create} alt="" style={{ verticalAlign: 'text-bottom' }} />&nbsp;&nbsp;</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <Button text="Criar" backgroundColor="var(--red)" click={toggleCriarProposta}>
+                            <img src={create} alt="" style={{ verticalAlign: 'text-bottom' }} />&nbsp;&nbsp;
+                        </Button>&nbsp;&nbsp;&nbsp;&nbsp;
                         <Button text="Associar" backgroundColor="var(--green)" disable={selectedProposta ? false : true}><img src={union} alt="" style={{ verticalAlign: 'text-bottom' }} />&nbsp;&nbsp;</Button>
                     </div>
                 </div>
+
+
             </div>
 
             <Notas close={() => setNotasOpen(false)} opened={notasOpen} ref={notasInput} save={saveNotas} />
+
+            {
+                criarProposta && <Suspense fallback={<Spinner text="A carregar dados..." />}>
+                    <CriarProposta close={toggleCriarProposta} oportunidadesSelecionadas={oportunidades} />
+                </Suspense>
+            }
+
 
         </div>
     )

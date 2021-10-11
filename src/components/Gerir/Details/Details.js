@@ -1,11 +1,11 @@
-
 import ReactDataGrid from '@inovua/reactdatagrid-community'
 import '@inovua/reactdatagrid-community/index.css'
 import React, { Fragment, useState, useRef, useCallback, Suspense } from 'react'
 import Button from '../../UI/Button'
 import CustomModal from '../../UI/CustomModal'
-
 import Spinner from '../../UI/Spinner'
+
+
 
 const FormPropor = React.lazy(() => import('./FormPropor/FormPropor'))
 
@@ -14,15 +14,16 @@ const Details = ({ data }) => {
 
     const columnTitles = []
     const smallWindow = window.innerHeight < 920
-    const gridStyle = { height: smallWindow ? '300px' : '400px'  } 
+    const gridStyle = { height: smallWindow ? '300px' : '400px' }
 
     //Component state
     const [modalOpen, setModalOpen] = useState(false)
     const [selectedRowData, setSelectedRowData] = useState([])
+    const [showAllButtons, setShowAllButtons] = useState(false)
 
     const modalTitle = useRef("")
     const selectedModalContentId = useRef(0)
-   
+
 
 
     const extractColumnNames = () => {
@@ -52,15 +53,38 @@ const Details = ({ data }) => {
         })
     }, [])
 
+
     const handleRowSelection = (data) => {
-        
+
         const selectedKeys = Object.keys(data.selected)
         let arr = []
-        for(const key of selectedKeys) {
-           arr = [...arr, {...data.selected[key]}]
+        for (const key of selectedKeys) {
+            arr = [...arr, { ...data.selected[key] }]
         }
 
-        setSelectedRowData(arr)
+
+        if (arr.length === 1) {
+            setShowAllButtons(true)
+            setSelectedRowData(arr)
+        } else if (arr.length > 1) {
+            const firstSelectedNif = arr[0].NifGrupo ? arr[0].NifGrupo : arr[0].Nif
+            //verificar se o primeiro nif selecionado faz parte do array das outras seleções
+            const isEqual = arr.every(el => {
+                return el.NifGrupo === firstSelectedNif
+            })
+            if (isEqual) {
+                setShowAllButtons(true)
+                setSelectedRowData(arr)
+            } else {
+                setShowAllButtons(false)
+                setSelectedRowData(arr)
+            }
+
+        }
+
+
+
+
     }
 
 
@@ -95,27 +119,27 @@ const Details = ({ data }) => {
                     defaultLimit={smallWindow ? 6 : 10}
                 />
 
-                <div  style={{display: 'flex', justifyContent: 'space-between', marginTop:'30px'}}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '30px' }}>
                     <div>
-                        <Button text='Form Oportunidade' backgroundColor="#c20707"/>
+                        <Button text='Form Oportunidade' backgroundColor="#c20707" />
                     </div>
-                    <div style={{display:'flex', gap:'10px'}}>
+                    <div style={{ display: 'flex', gap: '10px' }}>
                         <Button text='Acom. sem proposta' backgroundColor="#a612ba" click={openModal} id={1} disable={selectedRowData.length === 0 ? true : false} />
-                        <Button text='Propor & Negociar' backgroundColor="#10800c" click={openModal} id={2} disable={selectedRowData.length === 0 ? true : false}/>
+                        <Button text='Propor & Negociar' backgroundColor="#10800c" click={openModal} id={2} disable={showAllButtons ? false : true} />
                         <Button text='Fechar' backgroundColor="#c20707" click={openModal} id={3} disable={selectedRowData.length === 0 ? true : false} />
                     </div>
                 </div>
             </div>
 
-          
+
             <CustomModal open={modalOpen} modalTitle={modalTitle.current} onClose={closeModal} widthAuto={false}>
-                {selectedModalContentId.current === 2 && <Suspense fallback={<Spinner />}>
+                {selectedModalContentId.current === 2 && <Suspense fallback={<Spinner text="A carregar dados..." />}>
                     <FormPropor formContent={selectedRowData} /> </Suspense>}
             </CustomModal>
 
-{/* <pre>
-    {JSON.stringify(selectedRowData, null, 2)}
-</pre> */}
+            {/* <pre>
+                {JSON.stringify(selectedRowData, null, 2)}
+            </pre> */}
         </Fragment>
     )
 

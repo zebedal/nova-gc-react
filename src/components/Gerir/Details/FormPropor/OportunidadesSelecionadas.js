@@ -16,7 +16,7 @@ const OportunidadesSelecionadas = ({data, handler}) => {
                     <small style={{ fontSize: '9px',padding:'0 10px' }}>Resumo da(s) oportunidade(s) selecionada(s)</small>
                     <div>
                     {data.length > 0 ? <Carousel 
-                        itemsToShow={3} 
+                        itemsToShow={3}
                         pagination={true} 
                         showArrows={false} 
                         ref={carouselOportunidades} 

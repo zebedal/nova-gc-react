@@ -40,11 +40,11 @@ const PropostasAssociar = ({initialData, handler, setFiltered, filtered}) => {
             </div>
             <div style={{ marginTop: '5px', position: 'relative' }}>
                 <Carousel
-                    itemsToShow={3}
+                    itemsToShow={4}
                     pagination={true}
                     showArrows={false}
                     ref={carousel}
-                    /* breakPoints={breakPoints} */
+                    
                     itemPosition={consts.START}
                     itemPadding={[10, 10]}
                     renderPagination={({ pages, activePage, onClick }) => {

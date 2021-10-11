@@ -6,8 +6,6 @@ const SnapshotPanel = ({headerData, chartData, chartOptions, title, filterValor,
     const {novaReceitaUser, novaReceitaVodafone, refidelizaçãoUser, refidelizaçãoVodafone, tcv, total } =  headerData
   
 
-
-
     return (
 
         <div className={styles.column}>

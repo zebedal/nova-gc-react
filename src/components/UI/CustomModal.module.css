@@ -1,4 +1,5 @@
 .wrapper {
+    width: 50vw;
     min-width: 650px;
     height: auto;
     background: white;

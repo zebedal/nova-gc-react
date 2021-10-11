@@ -9,9 +9,9 @@ const Oportunidade = ({ nif, entidade, linhaNegocio, estado, sfid, id, dataCriac
     return (
         <div className={`${styles.wrapper} ${selected ? styles.selected : ""}`} onClick={() => click(id)}>
 
-            <div className={styles.header}>
-                <img src={icon} />&nbsp;
-                <p title={entidade}>{entidadeSliced}</p>
+            <div className={styles.header} style={{background: selected ? 'var(--green)' : ''}}>
+                <img src={icon} alt=""/>&nbsp;
+                <p title={entidade} >{entidadeSliced}</p>
                 {selected ? <img src={check} className={styles.check} alt="" /> : null}
             </div>
             <div className={styles.content}>
