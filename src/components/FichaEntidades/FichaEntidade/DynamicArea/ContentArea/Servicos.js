@@ -18,9 +18,7 @@ const qlikObj = [
 
 const Servicos = props => {
 
-    if(window.appFichaEntidade !== undefined){
-        loadKpis(window.appFichaEntidade, qlikObj)
-    }
+    loadKpis(window.appFichaEntidade, qlikObj)
 
     function loadKpis(app, kpiObjects){    
         kpiObjects.forEach((item) => {

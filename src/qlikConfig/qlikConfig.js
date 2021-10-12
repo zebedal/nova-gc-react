@@ -1,10 +1,13 @@
-import QlikWarning from "../components/UI/QlikWarning";
-import { config } from "./config";
-
+const config = {
+    host: "qlikdev.internal.vodafone.com",
+    prefix: "/imgticket/",
+    port: 443,
+    isSecure: window.location.protocol === "https:"
+};
 window.require.config({
     baseUrl: 'https://' + config.host + config.prefix + "resources",
     paths: {
-        qlik: 'https://' + config.host + config.prefix + "resources/js/qlik.js"
+        qlik: 'https://' + config.host + config.prefix + "resources/" + "js/qlik.js"
     },
 
 });
@@ -14,7 +17,6 @@ export default new Promise(resolve => {
 
         qlik.setOnError(function (error) {
             console.log(error.message);
-
         });
 
         window.qlik = qlik;

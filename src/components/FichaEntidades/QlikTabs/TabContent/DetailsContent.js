@@ -41,11 +41,9 @@ const DetailsContent = props => {
         height:'250px'
     }
 
-	if(window.appFichaEntidade !== undefined){
-		qlikObj.forEach((item) => {
-			window.appFichaEntidade.getObject(item.id, item.qlikId);
-		})
-	}
+	qlikObj.forEach((item) => {
+		window.appFichaEntidade.getObject(item.id, item.qlikId);
+	})
 
 	return (
 		<Fragment>
