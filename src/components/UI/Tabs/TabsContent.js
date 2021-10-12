@@ -7,6 +7,7 @@ import Tables from "../../Gerir/Tables"
 import Details from '../../Gerir/Details'
 import Spinner from "../Spinner"
 
+
 const TabsContent = ({ activeTab }) => {
 
     const [data, setData] = useState(null)
