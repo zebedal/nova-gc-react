@@ -31,7 +31,6 @@ const Basic = ({ localizer }) => {
         {
             id: 1,
             title: 'All Day Event very long title',
-            title: 'All Day Event very long title',
             desc: 'Reprehenderit do duis voluptate est dolore tempor consequat anim eiusmod ut anim amet velit. Esse consectetur dolore ex fugiat consequat. Culpa proident fugiat ut ex laboris. ',
             allDay: true,
             start: new Date(2021, 7, 13),
@@ -39,7 +38,6 @@ const Basic = ({ localizer }) => {
         },
         {
             id: 2,
-            title: 'All Day Event very long title',
             title: 'All Day Event very long title',
             desc: 'Reprehenderit do duis voluptate est dolore tempor consequat anim eiusmod ut anim amet velit. Esse consectetur dolore ex fugiat consequat. Culpa proident fugiat ut ex laboris.',
             allDay: true,

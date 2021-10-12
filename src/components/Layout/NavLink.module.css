@@ -1,6 +1,8 @@
 .navlink {
     list-style: none;
     position: relative;
+    /* font-family: montserrat-regular !important; */
+    padding-bottom:5px;
 }
 .subMenu {
     pointer-events: none;
@@ -37,7 +39,7 @@
     color: white !important;
     font-size: 12px;
     transition: all .5s ease;
-   
+    /* font-family: montserrat-regular !important; */
 }
 .subMenu-link > a:hover {
     color: #c20707 !important;

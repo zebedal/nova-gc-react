@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom'
 
 const NavLink = ({ MenuText, subMenuItems, subMenuUrl }) => {
 
-
-    
-    console.log(subMenuItems)
-
     return (
         <li className={styles.navlink}>
             <Link className={styles.link} to={subMenuUrl}>{MenuText}</Link>

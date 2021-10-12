@@ -9,11 +9,9 @@ import FichaEntidades from './pages/FichaEntidades';
 import Layout from './components/Layout/Layout'
 import EntidadesCarteira from './pages/EntidadesCarteira'
 
-
 function App() {
 
   const [qlikTicket, setQlikTicket] = useState('');
-
 
   useEffect(() => {
 

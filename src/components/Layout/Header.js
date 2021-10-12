@@ -29,7 +29,7 @@ const Header = props => {
             </nav>
             <UserInfo />
         </header>
-        <div id="CurrentSelections" style={{height: "40px"}}></div>
+        <div id="CurrentSelections" style={{height: "40px", display: "none", position: "sticky", top: "70px", "zIndex": "999"}}></div>
     </Fragment>
     )
 }

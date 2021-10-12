@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import Card from '../../UI/Card'
 import AvatarArea from './AvatarArea/AvatarArea'
 import DynamicArea from './DynamicArea/DynamicArea'
@@ -8,6 +8,7 @@ import Semaforos from './Semaforos/Semaforos'
 import styles from './FichaEntidade.module.css'
 import { motion } from 'framer-motion'
 import Avatar from '../../svg/FichaEntidade/Avatar'
+import { config } from '../../../qlikConfig/config'
 
 const variants = {
     start: {
@@ -22,142 +23,89 @@ const variants = {
     }
 }
 
-const config = {
-    host: "qlikdev.internal.vodafone.com",
-    prefix: "/imgticket/",
-    port: 443,
-    isSecure: window.location.protocol === "https:"
-};
+const circle = {
+    start: {
+        x: 0
+    },
+    hover: (custom) => ({
+        x: custom,
+        transition: {
+            type: 'spring',
+            stiffness: 400
+        }
+
+    })
+}
 
 const qlikObj = [
 	{
-		id: "QV_EtdTjc",
-		qlikId: "EtdTjc"
-	},{
-		id: "QV_aPmPM",
-		qlikId: "aPmPM"
-	},{
-		id: "QV_daAeebC",
-		qlikId: "daAeebC"
-	},{
-		id: "QV_MPmVp",
-		qlikId: "MPmVp"
-	},{
-		id: "QV_caPxJ",
-		qlikId: "caPxJ"
-	},{
-		id: "QV_TtGHTP",
-		qlikId: "TtGHTP"
-	},{
-		id: "QV_JmxHD",
-		qlikId: "JmxHD"
-	},{
-		id: "QV_jqKqZP",
-		qlikId: "jqKqZP"
-	},{
-		id: "QV_mHSa",
-		qlikId: "mHSa"
-	},{
-		id: "QV_TqMT",
-		qlikId: "TqMT"
-	},{
-		id: "QV_jjjFLvW",
-		qlikId: "jjjFLvW"
-	},{
-		id: "QV_nYgKA",
-		qlikId: "nYgKA"
-	},{
-		id: "QV_PwgCj",
-		qlikId: "PwgCj"
-	},{
-		id: "QV_mrkZRX",
-		qlikId: "mrkZRX"
-	},{
-		id: "QV_QHQQG",
-		qlikId: "QHQQG"
-	},{
-		id: "QV_WEffv",
-		qlikId: "WEffv"
-	},{
-		id: "QV_JfrMK",
-		qlikId: "JfrMK"
-	},{
-		id: "QV_CXNmmkh",
-		qlikId: "CXNmmkh"
-	},{
-		id: "QV_KsfLwfC",
-		qlikId: "KsfLwfC"
-	},{
-		id: "QV_prmyUe",
-		qlikId: "prmyUe"
-	},{
-		id: "QV_PJqsmh",
-		qlikId: "PJqsmh"
-	},{
-		id: "QV_hsAuLgU",
-		qlikId: "hsAuLgU"
-	},{
-		id: "QV_MUfMAK",
-		qlikId: "MUfMAK"
-	},{
-		id: "QV_jUhgQbx",
-		qlikId: "jUhgQbx"
-	},{
-		id: "QV_YSckE",
-		qlikId: "YSckE"
-	},{
-		id: "QV_SUWBBeW",
-		qlikId: "SUWBBeW"
-	},{
-		id: "QV_MZHKqX",
-		qlikId: "MZHKqX"
-	},{
-		id: "QV_VDDMjk",
-		qlikId: "VDDMjk"
-	},{
-		id: "QV_jMUDAKM",
-		qlikId: "jMUDAKM"
-	},{
-		id: "QV_jdgTC",
-		qlikId: "jdgTC"
-	},{
-		id: "QV_BrVzGSW",
-		qlikId: "BrVzGSW"
-	},{
-		id: "QV_xtCFD",
-		qlikId: "xtCFD"
-	},{
-		id: "QV_BYGYnMH",
-		qlikId: "BYGYnMH"
-	},{
-		id: "QV_JdNuuh",
-		qlikId: "JdNuuh"
-	},{
-		id: "QV_ZdtTs",
-		qlikId: "ZdtTs"
-	},{
-		id: "QV_JPLLGw",
-		qlikId: "JPLLGw"
-	},{
-		id: "QV_uaPjMt",
-		qlikId: "uaPjMt"
-	},{
-		id: "QV_PCcyDde",
-		qlikId: "PCcyDde"
-	},{
-		id: "QV_RUPZsJ",
-		qlikId: "RUPZsJ"
-	},{
-		id: "QV_ZRXmRsv",
-		qlikId: "ZRXmRsv"
+		id: "QV_FiltroDireccao",
+		qlikId: "Umrepm"
+	},
+	{
+		id: "QV_FiltrosCanal",
+		qlikId: "JMHqGv"
+	},
+	{
+		id: "QV_FiltrosManager",
+		qlikId: "BJXvMR"
+	},
+	{
+		id: "QV_FiltrosEquipa",
+		qlikId: "ktEVvJZ"
+	},
+	{
+		id: "QV_FiltrosPtVenda",
+		qlikId: "FvLX"
+	},
+	{
+		id: "QV_FiltrosResponsavel",
+		qlikId: "PThsjuQ"
+	},
+	{
+		id: "QV_FiltrosCoord1",
+		qlikId: "Nxm"
+	},
+	{
+		id: "QV_FiltrosCoord2",
+		qlikId: "PYFmW"
+	},
+	{
+		id: "QV_FiltrosVendedor",
+		qlikId: "TJpdZa"
+	},
+	{
+		id: "QV_FiltrosCliente",
+		qlikId: "hYRZzv"
+	},
+	{
+		id: "QV_FiltrosDistrito",
+		qlikId: "MXUMjP"
+	},
+	{
+		id: "QV_FiltrosLocalidade",
+		qlikId: "QRJeJC"
+	},
+	{
+		id: "QV_Filtros_V_Gov",
+		qlikId: "SUYLc"
+	},
+	{
+		id: "QV_Filtros_LongTail",
+		qlikId: "SjVb"
 	}
 ]
 
 const FichaEntidade = props => {
 
     useEffect(() => {
+        if(window.appFichaEntidade !== undefined){
+            window.appFichaEntidade.getObject("CurrentSelections", "CurrentSelections");
+            document.getElementById("CurrentSelections").style.display = "";
+        }
         return () => {
             document.getElementById("CurrentSelections").style.display = "none";
+            document.getElementById("CurrentSelections").innerHTML = "";
         }
     }, []);
 
@@ -170,14 +118,58 @@ const FichaEntidade = props => {
         }, 500)
     }
 
+	const [selectorWrapperOpen, setSelectorWrapperOpen] = useState(false)
+
+    const toggleSelectorWrapper = () => {
+        setSelectorWrapperOpen(!selectorWrapperOpen)
+    }
+
     if(window.appFichaEntidade === undefined){
-        window.appFichaEntidade = window.qlik.openApp('d6efc0c9-b356-4428-9251-5e80e5e9fafe', config);
-        window.appFichaEntidade.getObject("CurrentSelections", "CurrentSelections");
+		if(window.qlik !== undefined){
+			window.appFichaEntidade = window.qlik.openApp('d6efc0c9-b356-4428-9251-5e80e5e9fafe', config);
+        	window.appFichaEntidade.getObject("CurrentSelections", "CurrentSelections");
+		}
+    }
+
+	if(window.appFichaEntidade !== undefined){
+        qlikObj.forEach((item) => {
+			window.appFichaEntidade.getObject(item.id, item.qlikId);
+		})
     }
 
     return (
+		<Fragment>
+			<div className={styles.filterWrapper}>
+                <motion.svg width="24" height="21" viewBox="0 0 37 40" fill="none"
+                    style={{ position: 'absolute', top: '-52', right: '-60px', cursor: 'pointer' , zIndex: '9999' }}
+                    variants={variants} whileHover="hover" onClick={toggleSelectorWrapper}
+                >
+                    <line x1="1.5" y1="6.5" x2="35.5" y2="6.5" stroke="#363636" strokeWidth="3" strokeLinecap="round" />
+                    <motion.circle variants={circle} custom={14} cx="18.5" cy="6.5" r="5" transform="rotate(90 18.5 6.5)" fill="white" stroke="#363636" strokeWidth="3" />
+                    <line x1="1.5" y1="33.5" x2="35.5" y2="33.5" stroke="#363636" strokeWidth="3" strokeLinecap="round" />
+                    <motion.circle variants={circle} custom={12} cx="12.5" cy="33.5" r="5" transform="rotate(90 12.5 33.5)" fill="white" stroke="#363636" strokeWidth="3" />
+                    <line x1="1.5" y1="19.5" x2="35.5" y2="19.5" stroke="#363636" strokeWidth="3" strokeLinecap="round" />
+                    <motion.circle variants={circle} custom={-15} cx="30.5" cy="20" r="5" transform="rotate(90 30.5 20)" fill="white" stroke="#363636" strokeWidth="3" />
+                </motion.svg>
+                <div className={`${styles.selectorWrapper} ${selectorWrapperOpen ? styles.open : ""}`}>
+					<div id="QV_FiltroDireccao" className={styles.filterObj}></div>
+					<div id="QV_FiltrosCanal" className={styles.filterObj}></div>
+					<div id="QV_FiltrosManager" className={styles.filterObj}></div>
+					<div id="QV_FiltrosEquipa" className={styles.filterObj}></div>
+					<div id="QV_FiltrosPtVenda" className={styles.filterObj}></div>
+					<div id="QV_FiltrosResponsavel" className={styles.filterObj}></div>
+					<div id="QV_FiltrosCoord1" className={styles.filterObj}></div>
+					<div id="QV_FiltrosCoord2" className={styles.filterObj}></div>
+					<div id="QV_FiltrosVendedor" className={styles.filterObj}></div>
+					<div id="QV_FiltrosCliente" className={styles.filterObj}></div>
+					<div id="QV_FiltrosDistrito" className={styles.filterObj}></div>
+					<div id="QV_FiltrosLocalidade" className={styles.filterObj}></div>
+					<div id="QV_Filtros_V_Gov" className={styles.filterObj}></div>
+					<div id="QV_Filtros_LongTail" className={styles.filterObj}></div>
+                </div>
+            </div>
 
-        <Card padding={0} margin={'57px 0 0 0'}>
+			<Card padding={0} margin={'57px 0 0 0'}>
             <motion.div className={styles.wrapper} variants={variants} initial="start" animate={collapsed ? "end" : ""}>
 
                 {!collapsed && <div>
@@ -201,7 +193,7 @@ const FichaEntidade = props => {
 
             </motion.div>
         </Card>
-
+		</Fragment>
     )
 }
 export default FichaEntidade
