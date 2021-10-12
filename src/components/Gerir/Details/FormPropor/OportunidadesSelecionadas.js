@@ -1,8 +1,8 @@
 import Carousel, {consts} from 'react-elastic-carousel';
 import Oportunidade from './Oportunidade'
-import {useRef} from 'react'
+import {useRef, Fragment} from 'react'
 import styles from './FormPropor.module.css'
-
+import chevron from '../../../../assets/img/chevron-right.svg'
 
 
 const OportunidadesSelecionadas = ({data, handler}) => {
@@ -15,7 +15,7 @@ const OportunidadesSelecionadas = ({data, handler}) => {
                     <h5 style={{padding:'0 10px'}}>Oportunidades selecionadas</h5>
                     <small style={{ fontSize: '9px',padding:'0 10px' }}>Resumo da(s) oportunidade(s) selecionada(s)</small>
                     <div>
-                    {data.length > 0 ? <Carousel 
+                    {data.length > 0 ? <Fragment><Carousel 
                         itemsToShow={3}
                         pagination={true} 
                         showArrows={false} 
@@ -50,8 +50,8 @@ const OportunidadesSelecionadas = ({data, handler}) => {
                                 id={obj.Id}
                                 remove={handler}
                             />)}
-                        </Carousel> : <p style={{marginTop:'10px', color:'red', fontSize:'10px', paddingLeft:'10px'}}>Sem oportunidades selecionadas...</p>}
-                    
+                        </Carousel> <img src={chevron} style={{ width: '12px', position: 'absolute', right: '-25px', top: '85px', cursor: 'pointer' }} onClick={() => carouselOportunidades.current.slideNext()} alt=""/> </Fragment>: <p style={{marginTop:'10px', color:'red', fontSize:'10px', paddingLeft:'10px'}}>Sem oportunidades selecionadas...</p>}
+                       
                     </div>
                 </div>
     )

@@ -10,7 +10,6 @@ import chevron from '../../../../assets/img/chevron-right.svg'
 const PropostasAssociar = ({initialData, handler, setFiltered, filtered}) => {
 
 
-
     const carousel = useRef()
     const inputRef = useRef()
     
@@ -39,12 +38,11 @@ const PropostasAssociar = ({initialData, handler, setFiltered, filtered}) => {
                 </div>
             </div>
             <div style={{ marginTop: '5px', position: 'relative' }}>
-                <Carousel
+               {filtered.length > 0 ?  <Carousel
                     itemsToShow={4}
                     pagination={true}
                     showArrows={false}
                     ref={carousel}
-                    
                     itemPosition={consts.START}
                     itemPadding={[10, 10]}
                     renderPagination={({ pages, activePage, onClick }) => {
@@ -62,7 +60,7 @@ const PropostasAssociar = ({initialData, handler, setFiltered, filtered}) => {
                     }}
                 >
                     {filtered.map((obj, index) => <Proposta key={index}  {...obj} click={handler} />)}
-                </Carousel>
+                </Carousel> : <p style={{marginTop:'10px', color:'red', fontSize:'10px', paddingLeft:'10px'}}>Sem propostas para associar...</p>}
                 <img src={chevron} style={{ width: '12px', position: 'absolute', right: '-25px', top: '55px', cursor: 'pointer' }} onClick={() => carousel.current.slideNext()} alt=""/>
             </div>
         </div>

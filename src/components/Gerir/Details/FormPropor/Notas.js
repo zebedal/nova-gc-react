@@ -10,7 +10,7 @@ const Notas = React.forwardRef((props, ref) => {
         setSuccess(true)
         setTimeout(() => {
             setSuccess(false)
-            props.close()
+            props.save()
         },2200)
     }
 
