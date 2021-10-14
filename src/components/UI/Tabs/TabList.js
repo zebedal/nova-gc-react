@@ -32,20 +32,21 @@ const tabsHeader = [
 
 const TabList = (props) => {
 
- 
+
     const [data, setData] = useState(null)
     const [activeTab, setActiveTab] = useState(0)
 
 
     useEffect(() => {
-        setTimeout(async () => {
+
+        (async () => {
             const res = await axios.get('/data/oportunidades.json')
 
-            const {GerirValor} =  res.data
-            const {GerirVolume} =  res.data
-            const snapshotData = {valor: GerirValor, volume: GerirVolume, dataGraficos:res.data.GraficoEstado }
-            const {GerirOportEstado} = res.data
-            const {GerirDetalhe} = res.data
+            const { GerirValor } = res.data
+            const { GerirVolume } = res.data
+            const snapshotData = { valor: GerirValor, volume: GerirVolume, dataGraficos: res.data.GraficoEstado }
+            const { GerirOportEstado } = res.data
+            const { GerirDetalhe } = res.data
 
             const obj = {
                 GerirValor,
@@ -55,32 +56,32 @@ const TabList = (props) => {
                 GerirDetalhe
             }
             setData(obj)
-        }, 1000)
+        })();
 
     }, [])
 
 
-    if(!data) {
+    if (!data) {
         return <Card margin={0} padding={30}>
-        <div style={{padding:'50px 0'}}>
-            <Spinner text="A carregar dados, por favor aguarde..." width={30} height={35} />
-        </div>
+            <div style={{ padding: '50px 0' }}>
+                <Spinner text="A carregar dados, por favor aguarde..." width={30} height={35} />
+            </div>
         </Card>
     }
 
     console.log('RENDERING TABS LIST WITH ACTIVE TAB: ', activeTab)
 
     return (
-      
+
         <Fragment>
-            <TabsHeader  items={tabsHeader} activeTab={activeTab} setActive={setActiveTab}/>
-            <Card margin={0} padding={30}>
+            <TabsHeader items={tabsHeader} activeTab={activeTab} setActive={setActiveTab} />
+            <Card margin={0} padding={30} height={650}>
                 <div className={`${styles.tabsContentWrapper} ${activeTab === 0 ? styles.active : ""}`}><Snapshot data={data.snapshotData} /></div>
                 <div className={`${styles.tabsContentWrapper} ${activeTab === 1 ? styles.active : ""}`}><Tables data={data.GerirOportEstado} /></div>
                 <div className={`${styles.tabsContentWrapper} ${activeTab === 2 ? styles.active : ""}`}><Details data={data.GerirDetalhe} /></div>
             </Card>
         </Fragment>
-  
+
     )
 }
 
