@@ -1,6 +1,6 @@
 import ReactDataGrid from '@inovua/reactdatagrid-community'
 import '@inovua/reactdatagrid-community/index.css'
-import React, { Fragment, useState, useRef, Suspense, useEffect, useMemo, useCallback } from 'react'
+import React, { Fragment, useState, useRef, Suspense, useCallback } from 'react'
 import Button from '../../UI/Button'
 import CustomModal from '../../UI/CustomModal'
 import Spinner from '../../UI/Spinner'
@@ -11,15 +11,15 @@ const FormPropor = React.lazy(() => import('./FormPropor/FormPropor'))
 
 const Details = ({ data }) => {
 
-
    
+
     
     const smallWindow = window.innerHeight < 920
     const gridStyle = { height: smallWindow ? '300px' : '400px' }
 
     //Component state
    
-    const [rowData, setRowData] = useState(null)
+    /* const [rowData, setRowData] = useState(null) */
     const [modalOpen, setModalOpen] = useState(false)
     const [selectedRowData, setSelectedRowData] = useState([])
     const [showAllButtons, setShowAllButtons] = useState(false)
@@ -29,11 +29,8 @@ const Details = ({ data }) => {
     const columnTitles = useRef(new Array())
 
 
-    useEffect(() => { 
 
         const extractColumnNames = () => {
-
-            console.log('RUNNING THE FUNCTION AGAIN')
             const { NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV, SFID, Id } = data[0]
             let subset = { NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV, SFID, Id }
     
@@ -47,7 +44,7 @@ const Details = ({ data }) => {
         extractColumnNames()
 
 
-         const rowData =  () => {
+        const rowData =  useCallback(() => {
             return data.map((obj, index) => {
                 let newObj = {}
                 for (const columnObj of columnTitles.current) {
@@ -59,23 +56,14 @@ const Details = ({ data }) => {
                 }
                 return newObj
             })
-        }
-        setRowData(rowData)
+            
+        }, [])
+        rowData()
 
-    }, [data])
+  
 
 
-
-   
     
-    if(!rowData) {
-        return (
-            <div style={{padding:'50px 0'}}>
-            <Spinner text="A construir a tabela, por favor aguarde..." width={30} height={35} />
-        </div>
-        )   
-    }
-
 
     const handleRowSelection = (data) => {
 
@@ -163,9 +151,6 @@ const Details = ({ data }) => {
                 {selectedModalContentId.current === 1 && <FormAcompanhar formContent={selectedRowData} />}
             </CustomModal>
 
-            {/* <pre>
-                {JSON.stringify(selectedRowData, null, 2)}
-            </pre> */}
         </Fragment>
     )
 

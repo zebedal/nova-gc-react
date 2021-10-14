@@ -1,28 +1,17 @@
 
 import ReactDataGrid from '@inovua/reactdatagrid-community'
 import '@inovua/reactdatagrid-community/index.css'
-import { Fragment, useState, useEffect } from 'react'
+import React,{ Fragment, useState, useEffect } from 'react'
 import Button from '../UI/Button'
-import Spinner from '../UI/Spinner'
 
 const Tables = ({ data }) => {
 
-    const [dataSource, setDataSource] = useState(null)
+    const [dataSource, setDataSource] = useState(data)
     const [gridRef, setGridRef] = useState(null);
     const [searchText, setSearchText] = useState('');
 
     const smallWindow = window.innerHeight < 920
 
-    useEffect(() => {
-        setDataSource(data)
-    }, [])
-
-
-    if(!dataSource) {
-        return <div style={{padding:'50px 0'}}>
-            <Spinner text="A construir a tabela, por favor aguarde..." width={30} height={35} />
-        </div>
-    }
 
     const columns = [
         { name: 'id', header: 'Id', defaultVisible: false, type: 'number' },
@@ -106,8 +95,7 @@ const Tables = ({ data }) => {
         document.body.removeChild(link);
     };
 
-
-
+    console.log('RENDERING TABS TABLES...')
 
     return (
         <Fragment>
@@ -138,4 +126,4 @@ const Tables = ({ data }) => {
 
 }
 
-export default Tables
+export default React.memo(Tables)
