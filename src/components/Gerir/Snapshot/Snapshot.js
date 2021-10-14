@@ -80,7 +80,7 @@ const Snapshot = ({ data }) => {
 
 
   return (
-    <Fragment>
+    <div>
       <div className={styles['card-header']}>
         <p>Como estão as oportunidades de negócio?</p>
         <div className={styles['more-options-wrapper']}><span>Filtro:</span>
@@ -119,7 +119,7 @@ const Snapshot = ({ data }) => {
           gridItemsColor="#363636"
         />
       </div>
-    </Fragment>
+    </div>
   )
 }
 

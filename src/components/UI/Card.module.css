@@ -7,3 +7,9 @@
     position: relative;
     
 }
+.card.absolute {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+}

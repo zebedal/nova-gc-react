@@ -1,0 +1,14 @@
+.tabsContentWrapper > * {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    opacity: 0 !important;
+    pointer-events: none;
+}
+.tabsContentWrapper.active > * {
+    opacity: 1 !important;
+    pointer-events: all;
+}

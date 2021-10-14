@@ -12,11 +12,16 @@
 .wrapper:hover {
     opacity: .8;
 }
+.wrapper:hover > svg {
+    width: 20px;
+    height: 20px;
+}
 .wrapper > svg {
     position: absolute;
     right: -3px;
     top: -3px;
     cursor: pointer;
+    transition: all .3s;
 }
 .wrapper p {
     font-size: 9px;

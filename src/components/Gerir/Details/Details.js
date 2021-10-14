@@ -1,27 +1,25 @@
 import ReactDataGrid from '@inovua/reactdatagrid-community'
 import '@inovua/reactdatagrid-community/index.css'
-import React, { Fragment, useState, useRef, Suspense, useEffect, useMemo, useCallback } from 'react'
+import React, { useState, useRef, Suspense, useEffect } from 'react'
 import Button from '../../UI/Button'
 import CustomModal from '../../UI/CustomModal'
 import Spinner from '../../UI/Spinner'
 import FormAcompanhar from './FormAcompanharSemProposta/FormAcompanhar'
-
+import FormFechar from './FormFechar/FormFechar'
+import Card from '../../UI/Card'
 
 const FormPropor = React.lazy(() => import('./FormPropor/FormPropor'))
 
 const Details = ({ data }) => {
 
-
    
-    
     const smallWindow = window.innerHeight < 920
     const gridStyle = { height: smallWindow ? '300px' : '400px' }
 
-    //Component state
-   
-    const [rowData, setRowData] = useState(null)
+
     const [modalOpen, setModalOpen] = useState(false)
     const [selectedRowData, setSelectedRowData] = useState([])
+    const [rowData, setRowData] = useState(null)
     const [showAllButtons, setShowAllButtons] = useState(false)
 
     const modalTitle = useRef("")
@@ -29,11 +27,10 @@ const Details = ({ data }) => {
     const columnTitles = useRef(new Array())
 
 
-    useEffect(() => { 
 
+    useEffect(() => {
         const extractColumnNames = () => {
-
-            console.log('RUNNING THE FUNCTION AGAIN')
+            console.log('running extract column names function')
             const { NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV, SFID, Id } = data[0]
             let subset = { NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV, SFID, Id }
     
@@ -46,8 +43,8 @@ const Details = ({ data }) => {
         }
         extractColumnNames()
 
-
-         const rowData =  () => {
+        const rdata =  () => {
+            
             return data.map((obj, index) => {
                 let newObj = {}
                 for (const columnObj of columnTitles.current) {
@@ -59,26 +56,25 @@ const Details = ({ data }) => {
                 }
                 return newObj
             })
+            
         }
-        setRowData(rowData)
+        rdata()
 
-    }, [data])
+        setRowData(rdata)
+
+    }, [])
 
 
-
-   
-    
     if(!rowData) {
-        return (
-            <div style={{padding:'50px 0'}}>
-            <Spinner text="A construir a tabela, por favor aguarde..." width={30} height={35} />
+        return <Card margin={0} padding={30}>
+        <div style={{padding:'50px 0'}}>
+            <Spinner text="A carregar dados, por favor aguarde..." width={30} height={35} />
         </div>
-        )   
+        </Card>
     }
 
-
     const handleRowSelection = (data) => {
-
+        console.log('running handle row selection')
         const selectedKeys = Object.keys(data.selected)
         let arr = []
         for (const key of selectedKeys) {
@@ -121,10 +117,9 @@ const Details = ({ data }) => {
     }
 
 
-    
 
     return (
-        <Fragment>
+        <div>
             <h4>Título Tab Details</h4>
             <br />
             <p>Do labore eu aliqua sint culpa excepteur eu occaecat irure. Eiusmod commodo aute exercitation veniam aliquip laborum ea adipisicing. Tempor aliquip dolore sint ullamco consequat duis voluptate eu velit dolor in quis ea dolore. Culpa amet elit est mollit tempor aute do culpa elit in et.</p>
@@ -161,12 +156,10 @@ const Details = ({ data }) => {
                     <FormPropor formContent={selectedRowData} /> </Suspense>}
 
                 {selectedModalContentId.current === 1 && <FormAcompanhar formContent={selectedRowData} />}
+                {selectedModalContentId.current === 3 && <FormFechar formContent={selectedRowData} />}
             </CustomModal>
 
-            {/* <pre>
-                {JSON.stringify(selectedRowData, null, 2)}
-            </pre> */}
-        </Fragment>
+        </div>
     )
 
 }

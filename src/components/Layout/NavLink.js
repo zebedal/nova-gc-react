@@ -5,12 +5,9 @@ import { Link } from 'react-router-dom'
 const NavLink = ({ MenuText, subMenuItems, subMenuUrl }) => {
 
 
-    
-    console.log(subMenuItems)
-
     return (
         <li className={styles.navlink}>
-            <Link className={styles.link} to={subMenuUrl}>{MenuText}</Link>
+            <Link className={styles.link} to={subMenuUrl ? subMenuUrl : ""}>{MenuText}</Link>
             {subMenuItems && 
             <React.Fragment>
             <svg width="12.471" height="7.568" viewBox="0 0 12.471 7.568">
@@ -18,7 +15,7 @@ const NavLink = ({ MenuText, subMenuItems, subMenuUrl }) => {
                 transform="translate(-0.398 -8.683)" fill="#363636" />
             </svg>
             <ul className={styles.subMenu}>
-                {subMenuItems.map((item, index) => <li className={styles['subMenu-link']} key={index}><Link to={item.subMenuUrl}>{item.menuText}</Link></li>)}
+                {subMenuItems.map((item, index) => <li className={styles['subMenu-link']} key={index}><Link to={item.subMenuUrl ? item.subMenuUrl : ""}>{item.menuText}</Link></li>)}
             </ul> </React.Fragment>
             }
            
