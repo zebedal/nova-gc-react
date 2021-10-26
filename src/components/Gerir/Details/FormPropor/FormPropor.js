@@ -169,7 +169,7 @@ const FormPropor = ({ formContent }) => {
                         <Button text="Criar" backgroundColor="var(--red)" click={toggleCriarProposta}>
                             <img src={create} alt="" style={{ verticalAlign: 'text-bottom' }} />&nbsp;&nbsp;
                         </Button>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <Button text="Associar" backgroundColor="var(--green)" disable={selectedProposta ? false : true}><img src={union} alt="" style={{ verticalAlign: 'text-bottom' }} />&nbsp;&nbsp;</Button>
+                        <Button text="Guardar" backgroundColor="var(--green)" disable={selectedProposta ? false : true}><img src={union} alt="" style={{ verticalAlign: 'text-bottom' }} />&nbsp;&nbsp;</Button>
                     </div>
                 </div>
 

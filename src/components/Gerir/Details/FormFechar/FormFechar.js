@@ -5,8 +5,9 @@ import Notas from '../FormPropor/Notas'
 import notes from '../../../../assets/img/notes.svg'
 import checkmark from '../../../../assets/img/checkmark_verde.svg'
 import Button from '../../../UI/Button'
-import create from '../../../../assets/img/create.svg'
+import union from '../../../../assets/img/union.svg'
 import Switch from "react-switch";
+
 
 
 
@@ -24,7 +25,7 @@ const FormFechar = ({ formContent }) => {
     const [oportunidades, setOportunidades] = useState(formContent)
     const [notasOpen, setNotasOpen] = useState(false)
     const [savedNotas, setSavedNotas] = useState("")
-    const [switchChecked, setSwitchChecked] = useState(false)
+    const [switchChecked, setSwitchChecked] = useState(true)
 
     const notasInput = useRef("")
     const motivos = useRef([...motivosFecho.notChecked])
@@ -59,10 +60,13 @@ const FormFechar = ({ formContent }) => {
             <div className={`${styles.contentWrapper}`} style={{ display: notasOpen ? 'none' : 'block' }}>
 
                 <OportunidadesSelecionadas data={oportunidades} handler={deleteOportunidade} />
-                <div style={{ paddingLeft: '10px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <h5>Tipo de fecho:</h5>&nbsp;
+
+                <div className={styles.Header}>
+                    
+                    <div style={{display:'flex', justifyContent:'space-between'}}>
+                    <h5>Motivo</h5>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span style={{ fontSize: '10px', fontWeight: '500' }}>{switchChecked ? "Fechar com sucesso" : "Fechar sem sucesso"}&nbsp;&nbsp;</span>
+                        <h5>{switchChecked ? "Fechar com sucesso" : "Fechar sem sucesso"}&nbsp;&nbsp;</h5>
                         <Switch onChange={switchHandler}
                             checked={switchChecked}
                             offColor="#c20707"
@@ -72,9 +76,8 @@ const FormFechar = ({ formContent }) => {
                             handleDiameter={23}
                         />
                     </div>
-                </div>
-                <div className={styles.Header}>
-                    <h5>Motivo</h5>
+                    </div>
+
                     <div>
                         <select className={styles.formControl}>
                             {motivos.current.map((motivo, index) => <option key={index}>{motivo}</option>)}
@@ -83,13 +86,17 @@ const FormFechar = ({ formContent }) => {
                 </div>
                 <div className={styles.Header}>
                     <h5>Contratos a associar</h5>
+                    <br />
+                    <div style={{ display: 'flex', gap: '10px' }}>
+                        <div className={styles.box}></div>
+                        <div className={styles.box}></div>
+                        <div className={styles.box}></div>
+                        <div className={styles.box}></div>
+                    </div>
                 </div>
                 <br />
                 <br />
-                <br />
-                <br />
-                <br />
-                <br />
+
                 <div style={{ display: 'flex', justifyContent: 'space-between' }} >
                     <div className={styles.informacoes} onClick={() => setNotasOpen(true)} style={{ padding: '0 10px' }}>
                         <img src={notes} style={{ verticalAlign: 'middle' }} alt="" />&nbsp;
@@ -97,9 +104,7 @@ const FormFechar = ({ formContent }) => {
                         {(!notasOpen && savedNotas.length > 0) && <img src={checkmark} alt="" />}
                     </div>
                     <div>
-                        <Button text="Criar" backgroundColor="var(--red)" >
-                            <img src={create} alt="" style={{ verticalAlign: 'text-bottom' }} />&nbsp;&nbsp;
-                        </Button>
+                        <Button text="Associar" backgroundColor="var(--green)" ><img src={union} alt="" style={{ verticalAlign: 'text-bottom' }} />&nbsp;&nbsp;</Button>
                     </div>
                 </div>
             </div>

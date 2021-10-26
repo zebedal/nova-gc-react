@@ -98,7 +98,9 @@ tspan {
 .App {
   position: relative;
 }
-
+select {
+  cursor: pointer;
+}
 /* .rec-item-wrapper {
   padding: 10px !important;
 } */
