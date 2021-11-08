@@ -129,7 +129,7 @@ const TabList = props => {
     }, []);
 
     if(window.appCarteira === undefined){
-        window.appCarteira = window.qlik.openApp('ab910cd7-1312-4c34-9a20-3d798afd629b', config);
+        window.appCarteira = window.qlik.openApp('c672d09e-58d4-4dba-a35d-62a3eeff8ff3', config);
         window.appCarteira.getObject("CurrentSelections", "CurrentSelections");
     }
 

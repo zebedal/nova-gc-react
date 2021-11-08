@@ -19,7 +19,7 @@ function App() {
 
     const getTicket = async () => {
       try {
-        const res = await fetch('https://localhost/GC40services.asmx/QlikAuthentication', {
+        const res = await fetch('https://gcsupport-ebu.internal.vodafone.com/WebServices/GC40Services.asmx/QlikAuthentication', {
           headers: {
             'Accept': '*/*',
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
@@ -69,7 +69,7 @@ function App() {
             <FichaEntidades />
           </Route>
 
-          <img src={`https://qlikdev.internal.vodafone.com/imgticket/resources/img/core/dark_noise_16x16.png?qlikTicket=${qlikTicket}`} alt="" onLoad={qlikConfig} style={{display:'none'}}/>
+          <img src={`https://gestcomqap-ebu.internal.vodafone.com/imgticket/resources/img/core/dark_noise_16x16.png?qlikTicket=${qlikTicket}`} alt="" onLoad={qlikConfig} style={{display:'none'}}/>
         </Layout>
       </Suspense>
     </div >

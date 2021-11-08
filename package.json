@@ -2,7 +2,6 @@
   "name": "nova-gc-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gestcomqap-ebu.internal.vodafone.com",
   "dependencies": {
     "@inovua/reactdatagrid-community": "^4.1.24",
     "apexcharts": "^3.27.3",

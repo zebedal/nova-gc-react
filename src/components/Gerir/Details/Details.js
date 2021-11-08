@@ -21,6 +21,7 @@ const Details = ({ data }) => {
     const [selectedRowData, setSelectedRowData] = useState([])
     const [rowData, setRowData] = useState(null)
     const [showAllButtons, setShowAllButtons] = useState(false)
+    const [showFormOportunidades, setShowFormOportunidades] = useState(true)
 
     const modalTitle = useRef("")
     const selectedModalContentId = useRef(0)
@@ -29,8 +30,8 @@ const Details = ({ data }) => {
 
 
     useEffect(() => {
+
         const extractColumnNames = () => {
-            console.log('running extract column names function')
             const { NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV, SFID, Id } = data[0]
             let subset = { NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV, SFID, Id }
     
@@ -110,10 +111,12 @@ const Details = ({ data }) => {
         modalTitle.current = title
         selectedModalContentId.current = id
         setModalOpen(true)
+        setShowFormOportunidades(true)
     }
 
     const closeModal = () => {
         setModalOpen(false)
+        setShowFormOportunidades(false)
     }
 
 
@@ -140,7 +143,7 @@ const Details = ({ data }) => {
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '30px' }}>
                     <div>
-                        <Button text='Form Oportunidade' backgroundColor="#c20707" />
+                        <Button text='Form Oportunidade' backgroundColor="#c20707" click={openModal} />
                     </div>
                     <div style={{ display: 'flex', gap: '10px' }}>
                         <Button text='Acom. sem proposta' backgroundColor="#a612ba" click={openModal} id={1} disable={selectedRowData.length === 0 ? true : false} />
@@ -158,6 +161,10 @@ const Details = ({ data }) => {
                 {selectedModalContentId.current === 1 && <FormAcompanhar formContent={selectedRowData} />}
                 {selectedModalContentId.current === 3 && <FormFechar formContent={selectedRowData} />}
             </CustomModal>
+
+            {/* {showFormOportunidades && <CustomModal open={showFormOportunidades} onClose={closeModal}>
+                <iframe src="https://gestaocomercial-ebu.internal.vodafone.com/Customer/formsProd/form-oportunidades/index.html?nif=501943536&userId=12349&userName=LEAODM"></iframe>
+            </CustomModal>} */}
 
         </div>
     )

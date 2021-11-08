@@ -55,7 +55,13 @@ const TabList = (props) => {
                 GerirOportEstado,
                 GerirDetalhe
             }
+
+        const local = JSON.parse(window.localStorage.getItem('formOportunidades'))
+        if(local.opened) {
+            window.localStorage.removeItem('formOportunidades')
             setData(obj)
+            setActiveTab(2)
+        } else setData(obj)
         })();
 
     }, [])
