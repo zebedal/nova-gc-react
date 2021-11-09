@@ -17,24 +17,7 @@ function App() {
 
   useEffect(() => {
 
-    const getTicket = async () => {
-      try {
-        const res = await fetch('https://gcsupport-ebu.internal.vodafone.com/WebServices/GC40Services.asmx/QlikAuthentication', {
-          headers: {
-            'Accept': '*/*',
-            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-          },
-          method: 'POST',
-          body: new URLSearchParams({ userName: 'AlmeidaR2', password: '' })
-        })
-        const data = await res.text()
-        setQlikTicket(data)
-
-      } catch (e) {
-        console.log(e)
-      }
-    }
-    getTicket()
+   
 
   }, [])
 

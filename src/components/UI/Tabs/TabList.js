@@ -56,8 +56,8 @@ const TabList = (props) => {
                 GerirDetalhe
             }
 
-        const local = JSON.parse(window.localStorage.getItem('formOportunidades'))
-        if(local.opened) {
+        const local = JSON.parse(window.localStorage.getItem('formOportunidades')) 
+        if(local) {
             window.localStorage.removeItem('formOportunidades')
             setData(obj)
             setActiveTab(2)
@@ -74,8 +74,6 @@ const TabList = (props) => {
             </div>
         </Card>
     }
-
-    console.log('RENDERING TABS LIST WITH ACTIVE TAB: ', activeTab)
 
     return (
 

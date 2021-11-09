@@ -23,6 +23,7 @@ const Details = ({ data }) => {
     const [showAllButtons, setShowAllButtons] = useState(false)
     const [showFormOportunidades, setShowFormOportunidades] = useState(true)
 
+
     const modalTitle = useRef("")
     const selectedModalContentId = useRef(0)
     const columnTitles = useRef(new Array())
@@ -31,9 +32,11 @@ const Details = ({ data }) => {
 
     useEffect(() => {
 
+   
+
         const extractColumnNames = () => {
-            const { NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV, SFID, Id } = data[0]
-            let subset = { NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV, SFID, Id }
+            const {LeadId, NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV, SFID, Id } = data[0]
+            let subset = {LeadId, NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV, SFID, Id}
     
             for (const prop in subset) {
                 columnTitles.current.push({

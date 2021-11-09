@@ -3,12 +3,13 @@ import Button from '../../../UI/Button'
 import create from '../../../../assets/img/create.svg'
 import union from '../../../../assets/img/union.svg'
 import notes from '../../../../assets/img/notes.svg'
-import React, { useState, useRef, Suspense } from 'react'
+import React, { useState, useRef, Suspense, useEffect } from 'react'
 import Notas from './Notas'
 import OportunidadesSelecionadas from './OportunidadesSelecionadas'
 import PropostasAssociar from './PropostasAssociar'
 import Spinner from '../../../UI/Spinner'
 import checkmark from '../../../../assets/img/checkmark_verde.svg'
+import axios from 'axios'
 
 
 const breakPoints = [
@@ -18,87 +19,18 @@ const breakPoints = [
     { width: 700, itemsToShow: 4, itemsToScroll: 1, pagination: true }, */
 ]
 
-const CriarProposta = React.lazy(() => import('./CriarProposta/CriarProposta'))
+const checkBothArr = (arr1, arr2) => {
+    return arr1.every(el => arr2.includes(el))
+}
 
-const marteladas = [
-    {
-        id: 345123,
-        dataCriacao: '02-09-2021',
-        entidade: 'Costa e carvalho, Lda.',
-        linhaNegocio: 'Móvel',
-        sfid: '15001015',
-        estado: 'Em Curso (Sem Proposta)',
-        nif: 502008229,
-        selected: false
-    },
-    {
-        id: 236721,
-        dataCriacao: '07-09-2021',
-        entidade: 'Mister entidades',
-        linhaNegocio: 'Móvel',
-        sfid: '15001015',
-        estado: 'Em Curso (Sem Proposta)',
-        nif: 505008229,
-        selected: false
-    },
-    {
-        id: 987123,
-        dataCriacao: '10-07-2021',
-        entidade: 'Dreamteam solutions',
-        linhaNegocio: 'Fixo',
-        sfid: '15001015',
-        estado: 'Em Curso (Sem Proposta)',
-        nif: 505008259,
-        selected: false
-    },
-    {
-        id: 987163,
-        dataCriacao: '10-11-2021',
-        entidade: 'Logiweb Technical Solutions',
-        linhaNegocio: 'Fixo',
-        sfid: '15001015',
-        estado: 'Em Curso (Sem Proposta)',
-        nif: 502008329,
-        selected: false
-    },
-    {
-        id: 125432,
-        dataCriacao: '10-10-2021',
-        entidade: 'Andrade & Sousa, Lda.',
-        linhaNegocio: 'Fixo',
-        sfid: '15001015',
-        estado: 'Em Curso (Sem Proposta)',
-        nif: 503008829,
-        selected: false
-    },
-    {
-        id: 9521475,
-        dataCriacao: '10-10-2021',
-        entidade: 'Montiperes & Filhos, S.A',
-        linhaNegocio: 'Fixo',
-        sfid: '15001015',
-        estado: 'Em Curso (Sem Proposta)',
-        nif: 503008829,
-        selected: false
-    },
-    {
-        id: 2541478,
-        dataCriacao: '10-10-2021',
-        entidade: 'Associação Mutualista Nossa Senhora',
-        linhaNegocio: 'Fixo',
-        sfid: '15001015',
-        estado: 'Em Curso (Sem Proposta)',
-        nif: 505008829,
-        selected: false
-    }
-]
+const CriarProposta = React.lazy(() => import('./CriarProposta/CriarProposta'))
 
 const FormPropor = ({ formContent }) => {
 
 
     const [oportunidades, setOportunidades] = useState(formContent)
-    const [propostas, setPropostas] = useState(marteladas)
-    const [filteredPropostas, setFilteredPropostas] = useState(marteladas)
+    const [propostas, setPropostas] = useState()
+    const [filteredPropostas, setFilteredPropostas] = useState()
     const [notasOpen, setNotasOpen] = useState(false)
     const [savedNotas, setSavedNotas] = useState("")
     const [criarProposta, setCriarProposta] = useState(false)
@@ -106,6 +38,32 @@ const FormPropor = ({ formContent }) => {
     
     
     const notasInput = useRef("")
+
+    useEffect(() => {
+        (async() => {
+            const res = await axios.get('/data/propostasSimulador.json')
+            const data = res.data.Result
+
+
+            const arr = []
+            for(const obj of data) {
+                const newObj = {
+                    id: obj.Proposalid,
+                    dataCriacao: obj.CreateDate,
+                    entidade: obj.Customer,
+                    linhaNegocio: obj.Proposaltype,
+                    sfid: obj.SFID,
+                    estado: obj.Status,
+                    nif: obj.NIF,
+                    selected: false
+                }
+                arr.push(newObj)
+            }
+
+            setFilteredPropostas(arr) 
+            setPropostas(arr)
+        })();
+    }, [])
 
 
 
@@ -129,7 +87,15 @@ const FormPropor = ({ formContent }) => {
 
         //verifica se pelo menos uma das propostas está seleccionada para desabilitar o botão de associar
         const isSelected = newArr.some(el => el.selected === true)
-        setSelectedProposta(isSelected)
+
+        //devolve as propostas selecionadas 
+        const filtered = newArr.filter(el => el.selected === true)
+        const linhasNegocioPropostas = filtered.map(el => el.linhaNegocio)
+        const linhasNegocioOportunidades = oportunidades.map(el => el.LinhaNegocio)
+        const result = checkBothArr(linhasNegocioPropostas, linhasNegocioOportunidades)
+    
+
+        setSelectedProposta(result && isSelected)
         setFilteredPropostas(newArr)
     }
 
@@ -138,6 +104,9 @@ const FormPropor = ({ formContent }) => {
         setCriarProposta(!criarProposta)
     }
 
+    if(!propostas) return <div style={{margin:'120px 0'}}><Spinner text="A carregar propostas" /></div>
+
+   
 
     return (
 
