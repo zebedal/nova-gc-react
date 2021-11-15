@@ -3,12 +3,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
 
-/**
- fixed :
-  - no need to JSON.stringify to then immediatly do a JSON.parse
-  - don't use export defaults, because default imports are hard to search for
-  - axios already support generic request in one parameter, no need to call specialized ones
-**/
+
 export const useAxios = (axiosParams) => {
     
     const [response, setResponse] = useState(undefined);
@@ -29,7 +24,7 @@ export const useAxios = (axiosParams) => {
 
     useEffect(() => {
         fetchData(axiosParams);
-    }, []); // execute once only
+    }, []); 
 
     return { response, error, loading };
 };

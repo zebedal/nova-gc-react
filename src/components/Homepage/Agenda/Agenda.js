@@ -37,7 +37,6 @@ const Agenda = props => {
                 <ModalContextProvider >
                     <Basic localizer={localizer} />
                 </ModalContextProvider>
-
             </Card>
         </div>
     )

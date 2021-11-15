@@ -21,7 +21,7 @@ const CustomModal = ({ open, onClose, modalTitle, children }) => {
                 </div>
             </div>
         </Fragment>
-        , document.getElementById('custom-modal'))
+        ,document.getElementById('custom-modal'))
 
 }
 

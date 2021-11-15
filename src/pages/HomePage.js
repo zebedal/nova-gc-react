@@ -9,7 +9,6 @@ const HomePage = props => {
 
     return (
         <div className={styles.wrapper} >
-          
             <div className={styles['title-wrapper']}><h5 style={{ textTransform: 'none' }}>Bem vindo à <span>Gestão Comercial</span></h5></div>
             <Carteira />
             <Pipeline />

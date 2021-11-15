@@ -32,8 +32,6 @@ const Details = ({ data }) => {
 
     useEffect(() => {
 
-   
-
         const extractColumnNames = () => {
             const {LeadId, NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV, SFID, Id } = data[0]
             let subset = {LeadId, NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV, SFID, Id}
