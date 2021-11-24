@@ -1,12 +1,13 @@
 import ReactDataGrid from '@inovua/reactdatagrid-community'
 import '@inovua/reactdatagrid-community/index.css'
-import React, { useState, useRef, Suspense, useEffect } from 'react'
+import React, { useState, useRef, Suspense, useEffect, useContext } from 'react'
 import Button from '../../UI/Button'
 import CustomModal from '../../UI/CustomModal'
 import Spinner from '../../UI/Spinner'
 import FormAcompanhar from './FormAcompanharSemProposta/FormAcompanhar'
 import FormFechar from './FormFechar/FormFechar'
 import Card from '../../UI/Card'
+import NifSelector from '../../../store/NifSelectorContext'
 
 const FormPropor = React.lazy(() => import('./FormPropor/FormPropor'))
 
@@ -20,6 +21,7 @@ const Details = ({ data }) => {
     const [modalOpen, setModalOpen] = useState(false)
     const [selectedRowData, setSelectedRowData] = useState([])
     const [rowData, setRowData] = useState(null)
+    const [filteredRowData, setFilteredRowData] = useState(null)
     const [showAllButtons, setShowAllButtons] = useState(false)
     const [showFormOportunidades, setShowFormOportunidades] = useState(true)
 
@@ -28,7 +30,25 @@ const Details = ({ data }) => {
     const selectedModalContentId = useRef(0)
     const columnTitles = useRef(new Array())
 
+    const {nif} = useContext(NifSelector)
 
+
+    const filterValue = [
+        { name: 'NifGrupo', operator: 'startsWith', type: 'string', value: '' },
+        { name: 'LeadId', operator: 'startsWith', type: 'string', value: '' },
+        { name: 'NifGrupoDesc', operator: 'startsWith', type: 'string', value: '' },
+        { name: 'Responsavel', operator: 'startsWith', type: 'string', value: '' },
+        { name: 'tipoLead', operator: 'startsWith', type: 'string', value: '' },
+        { name: 'Campanha', operator: 'startsWith', type: 'string', value: '' },
+        { name: 'EstadoProposta', operator: 'startsWith', type: 'string', value: '' },
+        { name: 'Nif', operator: 'startsWith', type: 'string', value: '' },
+        { name: 'NifDesc', operator: 'startsWith', type: 'string', value: '' },
+        { name: 'TipoOportunidade', operator: 'startsWith', type: 'string', value: '' },
+        { name: 'SFID', operator: 'startsWith', type: 'string', value: '' },
+        { name: 'LinhaNegocio', operator: 'startsWith', type: 'string', value: '' },
+    ];
+
+   
 
     useEffect(() => {
 
@@ -52,7 +72,7 @@ const Details = ({ data }) => {
                 for (const columnObj of columnTitles.current) {
                     newObj = {
                         ...newObj,
-                        [columnObj.name]: obj[columnObj.name],
+                        [columnObj.name]: typeof obj[columnObj.name] === 'number' ? obj[columnObj.name].toString() : obj[columnObj.name],
                         id: index
                     }
                 }
@@ -61,22 +81,29 @@ const Details = ({ data }) => {
             
         }
         rdata()
-
-        setRowData(rdata)
-
+        setRowData(data)
+        setFilteredRowData(rdata)
     }, [])
+
+
+    useEffect(() => {
+        if(rowData) {
+            const filteredDataSource = rowData.filter(obj => nif.includes(obj.Nif))
+            if(filteredDataSource.length === 0) setFilteredRowData(rowData)
+            else setFilteredRowData(filteredDataSource)
+        }
+        
+    }, [nif, rowData])
 
 
     if(!rowData) {
         return <Card margin={0} padding={30}>
-        <div style={{padding:'50px 0'}}>
             <Spinner text="A carregar dados, por favor aguarde..." width={30} height={35} />
-        </div>
         </Card>
     }
 
     const handleRowSelection = (data) => {
-        console.log('running handle row selection')
+
         const selectedKeys = Object.keys(data.selected)
         let arr = []
         for (const key of selectedKeys) {
@@ -124,18 +151,18 @@ const Details = ({ data }) => {
 
     return (
         <div>
-            <h4>Título Tab Details</h4>
-            <br />
-            <p>Do labore eu aliqua sint culpa excepteur eu occaecat irure. Eiusmod commodo aute exercitation veniam aliquip laborum ea adipisicing. Tempor aliquip dolore sint ullamco consequat duis voluptate eu velit dolor in quis ea dolore. Culpa amet elit est mollit tempor aute do culpa elit in et.</p>
+           
+            <p>Todos os detalhes das suas oportunidades para uma gestão eficaz.</p>
 
             <div>
                 <ReactDataGrid
                     style={gridStyle}
                     columns={columnTitles.current}
-                    dataSource={rowData}
+                    dataSource={filteredRowData}
                     checkboxColumn={true}
+                    defaultFilterValue={filterValue}
                     checkboxOnlyRowSelect={true}
-                    idProperty="id"
+                    idProperty="Id"
                     onSelectionChange={handleRowSelection}
                     enableKeyboardNavigation={false}
                     pagination="local"

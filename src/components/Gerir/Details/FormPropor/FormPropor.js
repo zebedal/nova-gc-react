@@ -48,18 +48,20 @@ const FormPropor = ({ formContent }) => {
             const arr = []
             for(const obj of data) {
                 const newObj = {
-                    id: obj.Proposalid,
+                    id: obj.Parentid ? obj.Parentid : obj.Proposalid,
                     dataCriacao: obj.CreateDate,
                     entidade: obj.Customer,
                     linhaNegocio: obj.Proposaltype,
                     sfid: obj.SFID,
                     estado: obj.Status,
                     nif: obj.NIF,
-                    selected: false
+                    selected: false,
+                    tcv: obj.TCVLiquido
+
                 }
                 arr.push(newObj)
             }
-
+          
             setFilteredPropostas(arr) 
             setPropostas(arr)
         })();

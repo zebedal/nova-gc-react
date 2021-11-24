@@ -3,7 +3,7 @@ import styles from './Snapshot.module.css'
 import SnapshotPanel from './SnapshotPanel';
 import { useReducer, useRef } from 'react'
 import MoreOptions from '../../UI/MoreOptions';
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { chartOptions } from '../../../data/snapShotChartData'
 import { snapShotDataReducer } from '../../../reducers/snapshot-reducer'
 
@@ -51,6 +51,7 @@ const Snapshot = ({ data }) => {
       tcv: 178213
     }
   }
+
 
   const selectedFilter = useRef('volume')
   const [selectedData, dispatchFilter] = useReducer(snapShotDataReducer, snapShotInitialState)
@@ -123,4 +124,4 @@ const Snapshot = ({ data }) => {
   )
 }
 
-export default Snapshot
+export default React.memo(Snapshot)

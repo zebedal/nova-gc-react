@@ -23,7 +23,7 @@ const FormAcompanhar = ({ formContent }) => {
     }
 
     const saveNotas = () => {
-        console.log(notasInput.current)
+       
         setSavedNotas(notasInput.current.value)
         setNotasOpen(false)
     }

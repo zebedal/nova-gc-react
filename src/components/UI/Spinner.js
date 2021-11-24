@@ -1,7 +1,7 @@
 
 
 const Spinner = ({text, textColor, width = 40, height = 45}) => (
-    <div style={{position: 'absolute', top:'50%',left:'50%',transform: 'translate(-50%, -50%)', textAlign: 'center'}}>
+    <div style={{position: 'absolute', top:'50%',left:'50%',transform: 'translate(-50%, -50%)', textAlign: 'center', paddingTop:'50px', paddingBottom:'50px'}}>
         <svg width={width} height={height} viewBox="0 0 135 140" xmlns="http://www.w3.org/2000/svg" fill="#C20707" >
             <rect y="10" width="15" height="120" rx="6">
                 <animate attributeName="height"

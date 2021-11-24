@@ -10,6 +10,7 @@ import Snapshot from '../../Gerir/Snapshot/Snapshot'
 import Tables from '../../Gerir/Tables'
 import Details from '../../Gerir/Details/Details'
 import styles from './TabList.module.css'
+import { NifSelectorProvider } from '../../../store/NifSelectorContext'
 
 const tabsHeader = [
     {
@@ -56,12 +57,12 @@ const TabList = (props) => {
                 GerirDetalhe
             }
 
-        const local = JSON.parse(window.localStorage.getItem('formOportunidades')) 
-        if(local) {
-            window.localStorage.removeItem('formOportunidades')
-            setData(obj)
-            setActiveTab(2)
-        } else setData(obj)
+            const local = JSON.parse(window.localStorage.getItem('formOportunidades'))
+            if (local) {
+                window.localStorage.removeItem('formOportunidades')
+                setData(obj)
+                setActiveTab(2)
+            } else setData(obj)
         })();
 
     }, [])
@@ -78,12 +79,14 @@ const TabList = (props) => {
     return (
 
         <Fragment>
-            <TabsHeader items={tabsHeader} activeTab={activeTab} setActive={setActiveTab} />
-            <Card margin={0} padding={30} height={650}>
-                <div className={`${styles.tabsContentWrapper} ${activeTab === 0 ? styles.active : ""}`}><Snapshot data={data.snapshotData} /></div>
-                <div className={`${styles.tabsContentWrapper} ${activeTab === 1 ? styles.active : ""}`}><Tables data={data.GerirOportEstado} /></div>
-                <div className={`${styles.tabsContentWrapper} ${activeTab === 2 ? styles.active : ""}`}><Details data={data.GerirDetalhe} /></div>
-            </Card>
+            <NifSelectorProvider>
+                <TabsHeader items={tabsHeader} activeTab={activeTab} setActive={setActiveTab} />
+                <Card margin={0} padding={30} height={650}>
+                    <div className={`${styles.tabsContentWrapper} ${activeTab === 0 ? styles.active : ""}`}><Snapshot data={data.snapshotData} /></div>
+                    <div className={`${styles.tabsContentWrapper} ${activeTab === 1 ? styles.active : ""}`}><Tables data={data.GerirOportEstado} /></div>
+                    <div className={`${styles.tabsContentWrapper} ${activeTab === 2 ? styles.active : ""}`}><Details data={data.GerirDetalhe} /></div>
+                </Card>
+            </NifSelectorProvider>
         </Fragment>
 
     )

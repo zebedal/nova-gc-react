@@ -35,7 +35,4 @@ const Oportunidade = ({ tipoLead, nif, entidade, linhaNegocio, estado, motivo, s
 }
 
 
-
-
-
 export default Oportunidade

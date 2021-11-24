@@ -56,7 +56,7 @@ const FormFechar = ({ formContent }) => {
     }
 
     const saveNotas = () => {
-        console.log(notasInput.current)
+       
         setSavedNotas(notasInput.current.value)
         setNotasOpen(false)
     }
@@ -74,7 +74,6 @@ const FormFechar = ({ formContent }) => {
     }
 
     const handleContratos = objId => {
-        console.log(filteredContratos)
         const newArr = filteredContratos.map(obj => {
             if (obj.Id === objId && obj.selected) return { ...obj, selected: false }
             else if (obj.Id === objId && !obj.selected) return { ...obj, selected: true }
@@ -93,7 +92,6 @@ const FormFechar = ({ formContent }) => {
         return <Spinner text="A carregar contratos" />
     }
 
-    console.log(filteredContratos)
 
     return (
 

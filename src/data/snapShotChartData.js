@@ -34,12 +34,12 @@ export const chartOptions = {
       type: "bar",
       stacked: true,
     },
-    title: {
+    /* title: {
       text: 'Sales for something',
       style: {
         fontSize: '12px'
       }
-    },
+    }, */
     plotOptions: {
       bar: {
         horizontal: true,
