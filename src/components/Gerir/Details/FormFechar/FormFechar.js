@@ -80,13 +80,20 @@ const FormFechar = ({ formContent }) => {
             else return obj
         })
 
-        //verifica se pelo menos uma das propostas está seleccionada para desabilitar o botão de associar
         const isSelected = newArr.some(el => el.selected === true)
 
         setSelectedContrato(isSelected)
         setFilteredContratos(newArr)
     }
 
+    const toggleAllContracts = e => {
+        const checked = e.target.checked
+        const newArr = filteredContratos.map(obj => {
+            return { ...obj, selected: checked }
+        })
+
+        setFilteredContratos(newArr)
+    }
 
     if (!filteredContratos) {
         return <Spinner text="A carregar contratos" />
@@ -123,7 +130,12 @@ const FormFechar = ({ formContent }) => {
                         </select>
                     </div>
                 </div>
-                <ContratosAssociar initialData={contratos} filtered={filteredContratos} handler={handleContratos} setFiltered={setFilteredContratos} />
+                {switchChecked && <ContratosAssociar 
+                initialData={contratos} 
+                filtered={filteredContratos} 
+                handler={handleContratos} 
+                setFiltered={setFilteredContratos} 
+                selectAll={toggleAllContracts} />}
                 <br />
                 <br />
                 <div style={{ display: 'flex', justifyContent: 'space-between' }} >
@@ -133,7 +145,7 @@ const FormFechar = ({ formContent }) => {
                         {(!notasOpen && savedNotas.length > 0) && <img src={checkmark} alt="" />}
                     </div>
                     <div>
-                        <Button text="Associar" backgroundColor="var(--green)" ><img src={union} alt="" style={{ verticalAlign: 'text-bottom' }} />&nbsp;&nbsp;</Button>
+                        <Button text="Guardar" backgroundColor="var(--green)" ><img src={union} alt="" style={{ verticalAlign: 'text-bottom' }} />&nbsp;&nbsp;</Button>
                     </div>
                 </div>
             </div>

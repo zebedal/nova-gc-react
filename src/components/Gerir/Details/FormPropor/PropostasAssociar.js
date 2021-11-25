@@ -16,12 +16,13 @@ const PropostasAssociar = ({initialData, handler, setFiltered, filtered}) => {
     const changeHandler = () => {
         const valor = inputRef.current.value.trim()
         const filteredData = initialData.filter(proposta => {
-            return proposta.entidade.includes(valor) || proposta.nif.toString().includes(valor) || 
-            proposta.estado.includes(valor) || proposta.linhaNegocio.includes(valor)
+            return proposta.entidade.toLowerCase().includes(valor) || proposta.nif.toString().includes(valor) || 
+            proposta.estado.toLowerCase().includes(valor) || proposta.linhaNegocio.toLowerCase().includes(valor)
+            
         })
         setFiltered(filteredData)
     }
-
+  
     return (
 
         <div >

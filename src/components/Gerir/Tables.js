@@ -99,13 +99,10 @@ const Tables = ({ data }) => {
 
     return (
         <div>
-
             <p>As oportunidades de negócio em cada entidade.</p>
-        
-         
             <ReactDataGrid
                 onReady={setGridRef}
-                /* handle={test} */
+                /* handle={setGridRef} */
                 style={gridStyle}
                 columns={columns}
                 defaultFilterValue={filterValue}
@@ -118,10 +115,9 @@ const Tables = ({ data }) => {
                 enableKeyboardNavigation={false}
                 pagination="local"
                 defaultLimit={smallWindow ? 6 : 10}
-          
             />
             <Button text="Exportar" backgroundColor="#c20707" marginTop="30" click={handleExport} />
-            
+         
         </div>
     )
 
