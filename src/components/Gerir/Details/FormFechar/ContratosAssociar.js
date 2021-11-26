@@ -46,7 +46,7 @@ const ContratosAssociar = ({ initialData, handler, setFiltered, filtered, select
             </div>
             <div style={{ marginTop: '5px', position: 'relative' }}>
                 {filtered.length > 0 ? <Carousel
-                    itemsToShow={3}
+                    itemsToShow={4}
                     pagination={true}
                     showArrows={false}
                     ref={carousel}

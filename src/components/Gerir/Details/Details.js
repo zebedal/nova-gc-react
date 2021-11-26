@@ -11,6 +11,27 @@ import NifSelector from '../../../store/NifSelectorContext'
 
 const FormPropor = React.lazy(() => import('./FormPropor/FormPropor'))
 
+const columns = [
+    { name: 'LeadId', header: 'Id Global', defaultVisible: true, type: 'number' },
+    { name: 'Id', header: 'Id Oportunidade',  headerAlign: 'center', textAlign: 'center' },
+    { name: 'NifGrupo', header: 'Nif Grupo', headerAlign: 'center', textAlign: 'center' },
+    { name: 'NifGrupoDesc', header: 'Grupo', headerAlign: 'center', textAlign: 'center' },
+    { name: 'Nif', header: 'Nif Entidade', headerAlign: 'center', textAlign: 'center' },
+    { name: 'NifDesc', header: 'Entidade', headerAlign: 'center', textAlign: 'center' },
+    { name: 'Responsavel', header: 'Responsável Oport.', headerAlign: 'center', textAlign: 'center' },
+    { name: 'DataCriacao', header: 'Data criação', headerAlign: 'center', textAlign: 'center' },
+    { name: 'DataPrevAcomp', header: 'Prev. Acomp.', headerAlign: 'center', textAlign: 'center' },
+    { name: 'DataPrevFecho', header: 'Prev. Fecho.', headerAlign: 'center', textAlign: 'center' },
+    { name: 'Probabilidade', header: 'Probabilidade', headerAlign: 'center', textAlign: 'center' },
+    { name: 'LinhaNegocio', header: 'Linha Negócio', headerAlign: 'center', textAlign: 'center' },
+    { name: 'Campanha', header: 'Campanha', headerAlign: 'center', textAlign: 'center' },
+    { name: 'TCV', header: 'Valor TCV', headerAlign: 'center', textAlign: 'center' },
+    { name: 'condicoesVerificadas', header: 'Condições verificadas', headerAlign: 'center', textAlign: 'center' },
+    { name: 'FaseLead', header: 'Fase', headerAlign: 'center', textAlign: 'center' },
+    { name: 'EstadoProposta', header: 'Estado', headerAlign: 'center', textAlign: 'center' },
+    { name: 'DataEstado', header: 'Data estado', headerAlign: 'center', textAlign: 'center' },
+]
+
 const Details = ({ data }) => {
 
    
@@ -52,7 +73,7 @@ const Details = ({ data }) => {
 
     useEffect(() => {
 
-        const extractColumnNames = () => {
+        /* const extractColumnNames = () => {
             const {LeadId, NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV, SFID, Id } = data[0]
             let subset = {LeadId, NifGrupo, NifGrupoDesc, Nif, NifDesc, Responsavel, tipoLead, TipoOportunidade, LinhaNegocio, Campanha, EstadoProposta, TCV, SFID, Id}
     
@@ -63,13 +84,13 @@ const Details = ({ data }) => {
                 })
             }
         }
-        extractColumnNames()
+        extractColumnNames() */
 
         const rdata =  () => {
             
             return data.map((obj, index) => {
                 let newObj = {}
-                for (const columnObj of columnTitles.current) {
+                for (const columnObj of columns) {
                     newObj = {
                         ...newObj,
                         [columnObj.name]: typeof obj[columnObj.name] === 'number' ? obj[columnObj.name].toString() : obj[columnObj.name],
@@ -81,6 +102,7 @@ const Details = ({ data }) => {
             
         }
         rdata()
+        console.log(rdata())
         setRowData(data)
         setFilteredRowData(rdata)
     }, [])
@@ -157,7 +179,7 @@ const Details = ({ data }) => {
             <div>
                 <ReactDataGrid
                     style={gridStyle}
-                    columns={columnTitles.current}
+                    columns={columns}
                     dataSource={filteredRowData}
                     checkboxColumn={true}
                     defaultFilterValue={filterValue}

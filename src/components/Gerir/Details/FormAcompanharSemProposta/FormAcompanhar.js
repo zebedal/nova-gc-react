@@ -52,7 +52,7 @@ const FormAcompanhar = ({ formContent }) => {
                     {(!notasOpen && savedNotas.length > 0) && <img src={checkmark} alt="" />}
                 </div>
                 <div>
-                    <Button text="Gravar" backgroundColor="var(--red)" >
+                    <Button text="Guardar" backgroundColor="var(--red)" >
                         <img src={create} alt="" style={{ verticalAlign: 'text-bottom' }} />&nbsp;&nbsp;
                     </Button>
                 </div>
